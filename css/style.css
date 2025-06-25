@@ -1,14 +1,15 @@
 :root {
-  /* Using your brand colors from images */
-  --cor-primaria: #1A237E; /* Dark Blue from Placa da Fachada */
-  --cor-secundaria: #FFC107; /* Primary Orange/Yellow from fundo.jpg & Placa da Fachada */
-  --cor-detalhe: #D32F2F; /* Red accent from logo.png & Placa da Fachada */
-  --cor-texto: #212121; /* Dark text */
-  --cor-claro: #F5F5F5; /* Light background/text */
-  --cor-white: #FFFFFF; /* Pure white */
-  --cor-cinza-texto: #616161; /* Grey for subtle text */
+  /* Cores da sua paleta */
+  --cor-primaria: #1A237E; /* Azul escuro da Placa da Fachada */
+  --cor-secundaria: #FFC107; /* Amarelo da Placa da Fachada e Fundo */
+  --cor-detalhe: #D32F2F; /* Vermelho da logo */
+  --cor-texto-escuro: #212121; /* Texto geral escuro */
+  --cor-texto-claro: #F5F5F5; /* Texto geral claro */
+  --cor-branco: #FFFFFF; /* Branco puro */
+  --cor-cinza-texto: #616161; /* Cinza para textos secundários */
 }
 
+/* Reset básico e tipografia */
 * {
   margin: 0;
   padding: 0;
@@ -17,14 +18,12 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: var(--cor-texto);
+  color: var(--cor-texto-escuro);
   line-height: 1.6;
-  
-  /* NEW: Global yellow checkered background */
-  background-image: url('../img/fundo.PNG'); /* Ensure path to fundo.PNG is correct */
+  background-image: url('../img/Ney Car Auto Center Fundo.jpg'); /* Fundo quadriculado principal */
   background-repeat: repeat;
-  background-size: cover; /* Covers the entire background area */
-  background-attachment: fixed; /* Stays fixed when scrolling */
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .container {
@@ -34,51 +33,61 @@ body {
   padding: 20px 0;
 }
 
-/* Header adjustments for logo position and size */
-.topo { /* Refers to your header class */
-  background: var(--cor-primaria); /* */
-  color: var(--cor-white); /* */
-  padding: 15px 0; /* Reduced padding for more compact header */
+/* Cabeçalho (topo) */
+.topo {
+  background-image: url('../img/Ney Car Auto Center Fundo.jpg'); /* Fundo quadriculado no topo */
+  background-repeat: repeat;
+  background-size: cover;
+  padding: 15px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.topo .container { /* */
+.topo .container {
   display: flex;
-  align-items: center; /* */
-  justify-content: space-between; /* */
-  flex-wrap: wrap; /* */
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.logo { /* Your logo image class */
-  height: 40px; /* NEW: Smaller logo size */
+.logo {
+  /* Para que a imagem da logo se ajuste dinamicamente */
+  display: flex; /* Para centralizar verticalmente o conteúdo da logo */
+  align-items: center;
+  margin-right: auto; /* Empurra a navegação para a direita */
+  margin-left: 0; /* Garante que a logo fique à esquerda */
+}
+
+.logo img {
+  display: block;
+  height: auto; /* Permite que a altura seja ajustada */
+  max-height: 30px; /* Será ajustado pelo JS para ter a mesma altura do texto dos links */
   width: auto;
-  margin-right: auto; /* Pushes navigation to the right */
-  margin-left: 0; /* Ensures it's pushed to the far left */
 }
 
-nav ul { /* */
-  list-style: none; /* */
-  display: flex; /* */
-  gap: 20px; /* */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-nav a { /* */
-  color: var(--cor-white); /* */
-  text-decoration: none; /* */
-  font-weight: 600; /* */
+nav a {
+  color: var(--cor-primaria); /* Cor azul escuro para os links, visível no amarelo */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em; /* Ajustado para dar uma referência de altura ao JS */
   transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: var(--cor-secundaria);
+  color: var(--cor-detalhe); /* Vermelho no hover */
 }
 
-/* Mobile menu toggle (if you want to add it from previous version) */
+/* Toggle do menu mobile */
 .menu-toggle {
-    display: none; /* Hidden on desktop */
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
@@ -89,60 +98,60 @@ nav a:hover {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: var(--cor-white);
+    background-color: var(--cor-primaria); /* Azul escuro para as barras do toggle */
     margin: 5px 0;
     transition: all 0.3s ease;
 }
 
-/* Banner section (hero) */
-.banner { /* Refers to your banner class */
-  background-image: none; /* NEW: Remove specific banner image to show body background */
-  color: var(--cor-white);
+
+/* Banner (hero) */
+.banner {
+  background-image: none; /* Remover imagem específica para mostrar o fundo do body */
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay para legibilidade do texto */
+  color: var(--cor-branco);
   text-align: center;
-  padding: 100px 20px; /* */
+  padding: 100px 20px;
   position: relative;
-  /* Add an overlay to make text readable on top of checkered background */
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
 }
 
 .banner .container {
     position: relative;
-    z-index: 1; /* Ensure text is above overlay */
+    z-index: 1;
 }
 
-.banner h1 { /* */
-  font-size: 2.8rem; /* Adjusted size */
-  color: var(--cor-white); /* Ensure text is white */
+.banner h1 {
+  font-size: 2.8rem;
+  color: var(--cor-branco);
 }
 
-.banner p { /* */
-  font-size: 1.2rem; /* */
-  margin: 10px 0 30px; /* Adjusted margin */
+.banner p {
+  font-size: 1.2rem;
+  margin: 10px 0 30px;
 }
 
-.btn { /* */
-  background: var(--cor-detalhe); /* Using red accent for primary button */
-  color: var(--cor-white);
-  padding: 15px 30px; /* Adjusted padding */
-  border-radius: 6px; /* */
-  font-weight: bold; /* */
-  text-decoration: none; /* */
-  display: inline-block; /* */
-  transition: background 0.2s, transform 0.2s; /* Added transform for hover effect */
+.btn {
+  background: var(--cor-detalhe);
+  color: var(--cor-branco);
+  padding: 15px 30px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.2s;
 }
 
-.btn:hover { /* */
-  background: #A02020; /* Darker red on hover */
+.btn:hover {
+  background: #A02020; /* Vermelho mais escuro no hover */
   transform: translateY(-2px);
 }
 
-/* Section styling for solid backgrounds over checkered body */
-.reserva, /* */
-.veiculos, /* */
-.contato { /* New contact section class */
-    background-color: var(--cor-white); /* Solid white background */
-    padding: 60px 0; /* Adjusted padding */
-    margin-top: 40px; /* Space from previous section */
+/* Estilo para seções com fundo sólido */
+.reserva,
+.veiculos,
+.contato { /* Nova classe da seção de contato */
+    background-color: var(--cor-branco); /* Fundo branco sólido */
+    padding: 60px 0;
+    margin-top: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -150,7 +159,7 @@ nav a:hover {
 .reserva .container,
 .veiculos .container,
 .contato .container {
-    padding: 0 20px; /* Padding inside container, if needed */
+    padding: 0 20px;
 }
 
 h2 {
@@ -170,15 +179,15 @@ h2::after {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background-color: var(--cor-detalhe); /* Red underline */
+    background-color: var(--cor-detalhe);
     border-radius: 2px;
 }
 
-.reserva form { /* */
-  display: flex; /* */
-  flex-direction: column; /* */
-  gap: 20px; /* */
-  align-items: center; /* Center form elements */
+.reserva form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
 .reserva label {
@@ -188,70 +197,70 @@ h2::after {
     flex-direction: column;
     align-items: flex-start;
     font-weight: 600;
-    color: var(--cor-texto);
+    color: var(--cor-texto-escuro);
 }
 
-input[type="date"] { /* */
-  padding: 12px; /* Adjusted padding */
-  border: 1px solid #ccc; /* */
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  width: 100%; /* */
-  max-width: 300px; /* */
+  width: 100%;
+  max-width: 300px;
   font-size: 1em;
 }
 
-.veiculos h2 { /* */
-  margin-bottom: 30px; /* Adjusted margin */
+.veiculos h2 {
+  margin-bottom: 30px;
 }
 
-.cards { /* */
-  display: grid; /* */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for cards */
-  gap: 25px; /* Adjusted gap */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
   margin-top: 40px;
 }
 
-.card { /* */
-  background: var(--cor-white); /* */
-  border-radius: 10px; /* */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Stronger shadow */
-  overflow: hidden; /* */
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+.card {
+  background: var(--cor-branco);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
 }
 
-.card:hover { /* */
-  transform: translateY(-5px); /* Lift card on hover */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-.card img { /* */
-  width: 100%; /* */
-  height: 200px; /* Adjusted height */
-  object-fit: cover; /* */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
   display: block;
 }
 
-.card h3 { /* */
-  padding: 15px 15px 5px; /* Adjusted padding */
-  color: var(--cor-primaria); /* Dark blue for titles */
+.card h3 {
+  padding: 15px 15px 5px;
+  color: var(--cor-primaria);
   font-size: 1.4em;
 }
 
-.card p { /* */
-  padding: 0 15px 10px; /* */
+.card p {
+  padding: 0 15px 10px;
   color: var(--cor-cinza-texto);
 }
 
 .card p strong {
-    color: var(--cor-detalhe); /* Red for price */
+    color: var(--cor-detalhe);
     font-size: 1.3em;
     display: block;
     margin-top: 8px;
     padding-bottom: 15px;
 }
 
-/* Contact Section Styling */
+/* Seção de Contato */
 .contato {
     text-align: center;
 }
@@ -260,7 +269,7 @@ input[type="date"] { /* */
     font-size: 1.1em;
     max-width: 800px;
     margin: 0 auto 30px auto;
-    color: var(--cor-texto);
+    color: var(--cor-texto-escuro);
 }
 
 .contact-info {
@@ -293,47 +302,55 @@ input[type="date"] { /* */
     display: block;
 }
 
-
-.rodape { /* Refers to your footer class */
-  background: var(--cor-primaria); /* */
-  color: var(--cor-white); /* */
-  text-align: center; /* */
-  padding: 25px; /* Adjusted padding */
-  margin-top: 50px; /* Adjusted margin */
+/* Rodapé */
+.rodape {
+  background: var(--cor-primaria);
+  color: var(--cor-branco);
+  text-align: center;
+  padding: 25px;
+  margin-top: 50px;
   font-size: 0.9em;
 }
 
-
-/* Responsive Design */
+/* Design Responsivo */
 @media (max-width: 768px) {
     .topo .container {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .logo { /* Adjusted for smaller screens */
-        height: 35px;
+    .logo {
+        height: auto;
+        width: 60%;
         margin-bottom: 10px;
     }
 
-    /* Mobile Menu Toggle (re-adding from previous structure for responsiveness) */
+    .logo img {
+        max-height: 40px;
+        width: auto;
+    }
+
     .menu-toggle {
-        display: block; /* Show on mobile */
+        display: block;
         position: absolute;
         right: 20px;
         top: 20px;
+    }
+
+    .menu-toggle .icon-bar {
+        background-color: var(--cor-primaria);
     }
 
     nav ul {
         flex-direction: column;
         width: 100%;
         text-align: center;
-        display: none; /* Hidden by default for mobile */
+        display: none;
         transition: all 0.3s ease-in-out;
     }
 
     nav ul.active {
-        display: flex; /* Shown when active */
+        display: flex;
     }
 
     nav ul li {
@@ -367,7 +384,7 @@ input[type="date"] { /* */
     }
 
     .cards {
-        grid-template-columns: 1fr; /* Stack cards on small screens */
+        grid-template-columns: 1fr;
     }
 
     .card img {
@@ -384,8 +401,8 @@ input[type="date"] { /* */
 }
 
 @media (max-width: 480px) {
-    .logo {
-        height: 30px;
+    .logo img {
+        max-height: 30px;
     }
 
     .banner h1 {

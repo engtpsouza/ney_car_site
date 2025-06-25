@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
-    const navList = document.querySelector('nav ul'); // Select the unordered list inside nav
+    const navList = document.querySelector('nav ul');
 
     if (menuToggle && navList) {
         menuToggle.addEventListener('click', function() {
             navList.classList.toggle('active');
         });
 
-        // Close menu when a navigation link is clicked (for single-page navigation)
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navList.classList.contains('active')) {
@@ -18,7 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Fetch and display vehicles from veiculos.json
+    // Adjust logo height to match navigation links
+    const logoImg = document.querySelector('.logo img');
+    const navLink = document.querySelector('nav a'); // Pega o primeiro link de navegação para referência
+
+    if (logoImg && navLink) {
+        // Obter o estilo computado do link para pegar o tamanho da fonte
+        const navLinkFontSize = parseFloat(window.getComputedStyle(navLink).fontSize);
+        // Ajustar a altura máxima da logo. O 1.2 é um fator de ajuste, pode ser alterado
+        logoImg.style.maxHeight = `${navLinkFontSize * 1.2}px`;
+    }
+
+    // Fetch and display vehicles
     fetch('veiculos.json')
         .then(res => {
             if (!res.ok) {
@@ -55,13 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Erro ao carregar veículos:', err);
         });
 
-    // Handle booking form submission (optional: add actual booking logic)
-    const bookingForm = document.querySelector('.reserva form'); // Select the form inside .reserva
+    // Handle booking form submission
+    const bookingForm = document.querySelector('.reserva form');
     if (bookingForm) {
         bookingForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            // Here you would add logic to process the booking dates,
-            // e.g., send data to a server or display available cars based on dates.
             alert('Funcionalidade de reserva em desenvolvimento! Datas selecionadas: ' +
                   document.getElementById('data-retirada').value + ' a ' +
                   document.getElementById('data-devolucao').value);
