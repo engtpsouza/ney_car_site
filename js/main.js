@@ -1,128 +1,105 @@
-// Dados dos veículos
-let veiculosData = [];
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializa a biblioteca AOS para animações ao scroll
+    AOS.init({
+        duration: 800, // Duração da animação em milissegundos
+        once: true,    // A animação só deve ocorrer uma vez
+        easing: 'ease-in-out' // Efeito de aceleração
+    });
 
-// Função para carregar os veículos do JSON
-async function carregarVeiculos() {
-  try {
-    const res = await fetch('veiculos.json');
-    veiculosData = await res.json(); // Armazena os dados para uso posterior
-
-    const listaVeiculos = document.getElementById('lista-veiculos');
-    listaVeiculos.innerHTML = veiculosData.map(veiculo => `
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <img src="${veiculo.imagem}" alt="${veiculo.modelo}" />
-        <div class="card-content">
-          <h3>${veiculo.modelo}</h3>
-          <p class="category">${veiculo.categoria}</p>
-          <div class="card-prices">
-            <span class="price-day">R$ ${parseFloat(veiculo.preco_dia).toFixed(2)} / dia</span>
-            <span class="price-total" id="total-${veiculo.modelo.replace(/\s/g, '-')}-card"></span>
-          </div>
-          <a href="#reserva" class="btn btn-primary btn-card">Reservar</a>
-        </div>
-      </div>
-    `).join('');
-
-    // Preenche o dropdown de tipo de carro
+    // Seleciona os elementos do formulário
+    const reservaForm = document.getElementById('reserva-form');
+    const nomeInput = document.getElementById('nome');
     const tipoCarroSelect = document.getElementById('tipo-carro');
-    const categoriasUnicas = [...new Set(veiculosData.map(v => v.categoria))];
-    categoriasUnicas.forEach(categoria => {
-      const option = document.createElement('option');
-      option.value = categoria;
-      option.textContent = categoria;
-      tipoCarroSelect.appendChild(option);
-    });
+    const dataRetiradaInput = document.getElementById('data-retirada');
+    const dataDevolucaoInput = document.getElementById('data-devolucao');
+    const resultadoReservaDiv = document.getElementById('resultado-reserva');
 
-    // Atualiza os valores totais nos cards assim que a página carrega, caso datas já estejam preenchidas
-    calcularTotalPeriodo();
-
-  } catch (error) {
-    console.error('Erro ao carregar veículos:', error);
-    document.getElementById('lista-veiculos').innerHTML = '<p>Erro ao carregar veículos.</p>';
-  }
-}
-
-// Função para calcular dias e atualizar valor total nos cards
-function calcularTotalPeriodo() {
-  const retiradaInput = document.getElementById('data-retirada');
-  const devolucaoInput = document.getElementById('data-devolucao');
-  const resultadoReserva = document.getElementById('resultado-reserva');
-
-  const retirada = retiradaInput.value;
-  const devolucao = devolucaoInput.value;
-
-  if (!retirada || !devolucao) {
-    // Limpa os totais nos cards se as datas não estiverem preenchidas
-    veiculosData.forEach(veiculo => {
-      const totalSpan = document.getElementById(`total-${veiculo.modelo.replace(/\s/g, '-')}-card`);
-      if (totalSpan) {
-        totalSpan.textContent = '';
-      }
-    });
-    resultadoReserva.textContent = '';
-    return;
-  }
-
-  const dtRetirada = new Date(retirada);
-  const dtDevolucao = new Date(devolucao);
-
-  // Ajusta as datas para o fuso horário local para evitar problemas com diferença de fuso
-  dtRetirada.setMinutes(dtRetirada.getMinutes() + dtRetirada.getTimezoneOffset());
-  dtDevolucao.setMinutes(dtDevolucao.getMinutes() + dtDevolucao.getTimezoneOffset());
-
-  if (dtDevolucao < dtRetirada) {
-    resultadoReserva.textContent = 'A data de devolução deve ser igual ou posterior à de retirada.';
-    // Limpa os totais nos cards
-    veiculosData.forEach(veiculo => {
-      const totalSpan = document.getElementById(`total-${veiculo.modelo.replace(/\s/g, '-')}-card`);
-      if (totalSpan) {
-        totalSpan.textContent = '';
-      }
-    });
-    return;
-  }
-
-  const diffTime = Math.abs(dtDevolucao.getTime() - dtRetirada.getTime());
-  let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  // Garante que o número de dias seja no mínimo 1 se as datas forem iguais ou válidas
-  if (diffDays === 0 && dtRetirada.toDateString() === dtDevolucao.toDateString()) {
-      diffDays = 1;
-  } else if (diffDays === 0) { // Se por algum motivo for 0 e as datas não são iguais (erro de cálculo)
-      resultadoReserva.textContent = 'Erro ao calcular número de dias.';
-      return;
-  }
-
-
-  veiculosData.forEach(veiculo => {
-    const precoDia = parseFloat(veiculo.preco_dia);
-    const total = (precoDia * diffDays).toFixed(2);
-    const totalSpan = document.getElementById(`total-${veiculo.modelo.replace(/\s/g, '-')}-card`);
-    if (totalSpan) {
-      totalSpan.textContent = `Total: R$ ${total}`;
+    // Função auxiliar para formatar a data para o formato DD/MM/YYYY
+    function formatDate(dateString) {
+        if (!dateString) return '';
+        const [year, month, day] = dateString.split('-');
+        return `${day}/${month}/${year}`;
     }
-  });
 
-  resultadoReserva.textContent = `Período da reserva: ${diffDays} dia(s). Valores atualizados nos veículos.`;
-}
+    // Adiciona um "listener" para o evento de envio do formulário
+    reservaForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário (que recarregaria a página)
 
-document.addEventListener('DOMContentLoaded', () => {
-  carregarVeiculos();
+        // Coleta os valores dos campos
+        const nome = nomeInput.value.trim();
+        const tipoCarro = tipoCarroSelect.value;
+        const dataRetirada = dataRetiradaInput.value;
+        const dataDevolucao = dataDevolucaoInput.value;
 
-  const reservaForm = document.getElementById('reserva-form');
-  if (reservaForm) {
-    reservaForm.addEventListener('submit', (event) => {
-      event.preventDefault(); // Impede o envio padrão do formulário
-      calcularTotalPeriodo();
+        // Validação básica dos campos obrigatórios
+        if (!nome || !dataRetirada || !dataDevolucao) {
+            resultadoReservaDiv.textContent = 'Por favor, preencha todos os campos obrigatórios (Nome, Data de Retirada, Data de Devolução).';
+            resultadoReservaDiv.style.color = 'red';
+            return; // Interrompe a execução se os campos não estiverem preenchidos
+        }
+
+        // Validação das datas: data de devolução não pode ser antes da data de retirada
+        const startDate = new Date(dataRetirada);
+        const endDate = new Date(dataDevolucao);
+
+        if (startDate > endDate) {
+            resultadoReservaDiv.textContent = 'A Data de Devolução não pode ser anterior à Data de Retirada.';
+            resultadoReservaDiv.style.color = 'red';
+            return; // Interrompe a execução
+        }
+
+        // Constrói a mensagem para o WhatsApp
+        let message = `Olá! Meu nome é ${nome}. `;
+        message += `Tenho interesse em alugar um veículo para o período de ${formatDate(dataRetirada)} a ${formatDate(dataDevolucao)}.`;
+
+        if (tipoCarro && tipoCarro !== '') { // Verifica se um tipo de carro específico foi selecionado
+            message += `\nTipo de veículo desejado: ${tipoCarro}.`;
+        } else {
+            message += `\nNão tenho preferência de tipo de veículo.`;
+        }
+        message += `\nPor favor, envie-me as opções disponíveis e os valores.`;
+
+        // Número de WhatsApp da Ney Car Auto Center (DDD 77)
+        // O número deve estar no formato internacional (código do país + DDD + número, sem espaços ou caracteres especiais)
+        const whatsappNumber = '557736442289'; 
+        
+        // Codifica a mensagem para ser usada na URL do WhatsApp
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Constrói a URL completa do WhatsApp
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+        // Abre o WhatsApp em uma nova aba/janela
+        window.open(whatsappUrl, '_blank');
+
+        // Feedback para o usuário e limpeza do formulário (opcional)
+        resultadoReservaDiv.textContent = 'Sua solicitação foi enviada para o WhatsApp. Em breve entraremos em contato!';
+        resultadoReservaDiv.style.color = 'green';
+        reservaForm.reset(); // Limpa o formulário após o envio
     });
-  }
 
-  // Adiciona listeners para atualizar o cálculo quando as datas mudarem
-  document.getElementById('data-retirada').addEventListener('change', calcularTotalPeriodo);
-  document.getElementById('data-devolucao').addEventListener('change', calcularTotalPeriodo);
+    // --- Início: Lógica para popular a lista de veículos (se houver) ---
+    // Atualmente, o <select id="tipo-carro"> só tem "Qualquer tipo".
+    // Se você tiver uma lista de veículos em algum lugar (ex: um array em JS ou vindo de uma API),
+    // você pode usar esta seção para popular o select dinamicamente.
+    // Exemplo (descomente e adapte se necessário):
+    /*
+    const veiculosDisponiveis = [
+        "Carro Compacto - Fiat Mobi",
+        "Sedan Médio - Chevrolet Onix Plus",
+        "SUV - Hyundai Creta",
+        "Utilitário - Fiat Fiorino",
+        // Adicione mais veículos conforme necessário
+    ];
 
-  AOS.init({
-    duration: 1000, // duração das animações em ms
-    once: true, // se as animações devem ocorrer apenas uma vez
-  });
+    if (tipoCarroSelect) {
+        veiculosDisponiveis.forEach(veiculo => {
+            const option = document.createElement('option');
+            option.value = veiculo;
+            option.textContent = veiculo;
+            tipoCarroSelect.appendChild(option);
+        });
+    }
+    */
+    // --- Fim: Lógica para popular a lista de veículos ---
 });
