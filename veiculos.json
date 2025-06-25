@@ -1,0 +1,14 @@
+[
+  {
+    "modelo": "Fiat Argo 1.0",
+    "descricao": "Econômico, ar-condicionado, 5 lugares.",
+    "preco_dia": "89.90",
+    "imagem": "img/argo.jpg"
+  },
+  {
+    "modelo": "Chevrolet Onix",
+    "descricao": "Completo, excelente para cidade e estrada.",
+    "preco_dia": "99.90",
+    "imagem": "img/onix.jpg"
+  }
+]

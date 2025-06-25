@@ -3,148 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow">
-  <title>Ney Car Auto Center - Aluguel de Veículos</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Ney Car Auto Center</title>
+  <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --cor-principal: #0d47a1;
-      --cor-secundaria: #ffcc00;
-      --cor-fundo: #f9f9f9;
-      --cor-texto: #333;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--cor-fundo);
-      color: var(--cor-texto);
-    }
-
-    header {
-      background-color: var(--cor-principal);
-      padding: 20px 0;
-      text-align: center;
-    }
-
-    header img {
-      max-width: 200px;
-      height: auto;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .banner img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-      margin-top: 40px;
-      color: var(--cor-principal);
-    }
-
-    .reserva, .veiculos {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      margin-top: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    label {
-      display: block;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    input[type="date"] {
-      padding: 10px;
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .carousel-wrapper {
-      position: relative;
-      overflow: hidden;
-      margin-top: 20px;
-    }
-
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 20px;
-    }
-
-    .carousel img {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .rodape {
-      background: var(--cor-principal);
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 768px) {
-      .carousel img {
-        width: 100%;
-        height: auto;
-      }
-    }
-  </style>
 </head>
 <body>
-  <header>
-    <img src="img/Ney Car Auto Center - Placa da Fachada.png" alt="Logo Ney Car Auto Center" />
+  <header class="topo">
+    <div class="container">
+      <img src="img/logo.png" alt="Ney Car Auto Center" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#reserva">Reserva</a></li>
+          <li><a href="#veiculos">Veículos</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <div class="container">
-    <section class="banner">
-      <img src="img/promocao-neycar.png" alt="Promoção Ney Car" />
-    </section>
+  <section class="banner">
+    <div class="container">
+      <h1>Encontre o carro ideal para sua viagem</h1>
+      <p>Economia, conforto e confiança com a Ney Car Auto Center</p>
+      <a href="#reserva" class="btn">Fazer reserva</a>
+    </div>
+  </section>
 
-    <section class="reserva">
-      <h2>Reserve seu veículo</h2>
-      <p>Escolha as datas abaixo para consultar disponibilidade:</p>
+  <section id="reserva" class="reserva container">
+    <h2>Reserva de Veículos</h2>
+    <form>
       <label>Data de retirada:
         <input type="date" id="data-retirada" />
       </label>
       <label>Data de devolução:
         <input type="date" id="data-devolucao" />
       </label>
-    </section>
+      <button type="submit" class="btn">Consultar</button>
+    </form>
+  </section>
 
-    <section class="veiculos">
-      <h2>Veículos disponíveis</h2>
-      <div class="carousel-wrapper">
-        <div class="carousel">
-          <img src="img/car1.jpg" alt="Carro 1" />
-          <img src="img/car2.jpg" alt="Carro 2" />
-          <img src="img/car3.jpg" alt="Carro 3" />
-        </div>
-      </div>
-    </section>
-  </div>
+  <section id="veiculos" class="veiculos container">
+    <h2>Veículos disponíveis</h2>
+    <div id="lista-veiculos" class="cards"></div>
+  </section>
 
   <footer class="rodape">
-    <p>&copy; 2025 Ney Car Auto Center. Todos os direitos reservados.</p>
+    <div class="container">
+      <p>&copy; 2025 Ney Car Auto Center</p>
+      <p>Contato: contato@neycar.com.br</p>
+    </div>
   </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
