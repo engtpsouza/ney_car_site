@@ -20,7 +20,8 @@ body {
   font-family: 'Poppins', sans-serif;
   color: var(--cor-texto-escuro);
   line-height: 1.6;
-  background-image: url('../img/fundo.jpg'); /* Fundo quadriculado principal para TODO O BODY*/
+  /* Fundo quadriculado principal para TODO O BODY */
+  background-image: url('../img/fundo.jpg');
   background-repeat: repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -35,7 +36,7 @@ body {
 
 /* Cabeçalho (topo) */
 .topo {
-  /* Usando a mesma imagem de fundo quadriculada para o topo*/
+  /* Fundo quadriculado no topo */
   background-image: url('../img/fundo.jpg');
   background-repeat: repeat;
   background-size: cover;
@@ -51,7 +52,7 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  position: relative; /* Para garantir que o z-index da logo funcione dentro dele */
+  position: relative; /* Garante contexto para z-index, se necessário para filhos */
 }
 
 .logo {
@@ -60,8 +61,6 @@ body {
   align-items: center;
   margin-right: auto;
   margin-left: 0;
-  /* z-index: 1001; */ /* Removido z-index aqui para evitar sobreposição interna */
-  position: relative; /* Importante para z-index funcionar, mas o pai já é sticky */
 }
 
 .logo img {
@@ -69,7 +68,7 @@ body {
   height: auto;
   max-height: 30px; /* Será ajustado pelo JS, mas um valor inicial */
   width: auto;
-  /* Remover qualquer 'position: fixed' ou 'absolute' daqui se houver */
+  /* IMPORTANTE: Remova qualquer 'position: fixed' ou 'absolute' daqui se estiverem causando a flutuação */
 }
 
 nav ul {
@@ -90,7 +89,7 @@ nav a:hover {
   color: var(--cor-detalhe); /* Vermelho no hover */
 }
 
-/* Toggle do menu mobile */
+/* Toggle do menu mobile (mantido) */
 .menu-toggle {
     display: none;
     background: none;
@@ -108,15 +107,17 @@ nav a:hover {
     transition: all 0.3s ease;
 }
 
+
 /* Banner (hero) */
 .banner {
-  background-image: none; /* Remover imagem específica para mostrar o fundo do body */
+  /* Não deve ter background-image aqui se a logo flutuante estiver vindo daí */
+  background-image: none; /* Garante que nenhuma imagem indesejada seja carregada aqui */
   background-color: rgba(0, 0, 0, 0.5); /* Overlay para legibilidade do texto */
   color: var(--cor-branco);
   text-align: center;
   padding: 100px 20px;
   position: relative;
-  z-index: 1; /* Garante que o banner não fique abaixo de outros elementos, mas o header deve ser maior */
+  z-index: 1; /* Abaixo do header */
 }
 
 .banner .container {
@@ -159,7 +160,7 @@ nav a:hover {
     margin-top: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    position: relative; /* Para evitar que o z-index do body afete negativamente */
+    position: relative; /* Para que o z-index funcione */
     z-index: 5; /* Abaixo do header */
 }
 
@@ -317,11 +318,11 @@ input {
   padding: 25px;
   margin-top: 50px;
   font-size: 0.9em;
-  position: relative; /* Para garantir que fique acima do fundo do body */
+  position: relative;
   z-index: 5;
 }
 
-/* Design Responsivo */
+/* Design Responsivo (mantido) */
 @media (max-width: 768px) {
     .topo .container {
         flex-direction: column;
