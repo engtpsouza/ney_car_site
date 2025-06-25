@@ -5,7 +5,7 @@
   --text-color: #333;
   --light-text-color: #666;
   --white-color: #ffffff;
-  --dark-gray-color: #444;
+  --dark-gray-color: #444; /* Cor para o "Fale Conosco" (um cinza bem escuro, quase preto) */
   --box-shadow-light: rgba(0, 0, 0, 0.1);
   --box-shadow-medium: rgba(0, 0, 0, 0.2);
   --red-banner-color: #cc0000;
@@ -165,7 +165,8 @@ body {
 
 /* Hero Section */
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/hero-background.jpg'); /* Adicione uma imagem de fundo para o hero */
+  /* ATUALIZADO: Nova imagem de fundo */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/hero-background2.jpg');
   background-size: cover;
   background-position: center;
   color: var(--white-color);
@@ -363,10 +364,9 @@ h2::after {
   color: var(--white-color);
 }
 
-/* Nova classe para o título da seção de contato */
+/* Classe para o título "Fale Conosco" ser preto */
 .contact-title-black {
-  color: var(--dark-gray-color); /* Usando a variável para uma cor mais escura */
-  /* Se precisar de preto puro, use: color: #000; */
+  color: var(--dark-gray-color); /* Usando a variável para um cinza bem escuro, quase preto */
 }
 
 .contato h2 {
@@ -613,7 +613,7 @@ h2::after {
     font-size: 1.3rem;
   }
   .card-prices .price-day {
-    font-size: 1rem;
+    font-size: 1.0rem;
   }
   .card-prices .price-total {
     font-size: 1.2rem;
