@@ -35,12 +35,17 @@ function calcularReserva(event) {
   const dtRetirada = new Date(retirada);
   const dtDevolucao = new Date(devolucao);
 
+  // Ajusta as datas para o fuso horário local para evitar problemas com diferença de fuso
+  dtRetirada.setMinutes(dtRetirada.getMinutes() + dtRetirada.getTimezoneOffset());
+  dtDevolucao.setMinutes(dtDevolucao.getMinutes() + dtDevolucao.getTimezoneOffset());
+
+
   if (dtDevolucao <= dtRetirada) {
     resultado.textContent = 'A data de devolução deve ser posterior à de retirada.';
     return;
   }
 
-  const diffTime = Math.abs(dtDevolucao - dtRetirada);
+  const diffTime = Math.abs(dtDevolucao.getTime() - dtRetirada.getTime()); // Usar .getTime() para milissegundos
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   // Calcula valor total usando o primeiro veículo como referência
@@ -54,6 +59,10 @@ function calcularReserva(event) {
       const precoDia = parseFloat(veiculos[0].preco_dia);
       const total = (precoDia * diffDays).toFixed(2);
       resultado.textContent = `Reserva por ${diffDays} dia(s). Valor aproximado: R$ ${total}`;
+    })
+    .catch(error => {
+      console.error('Erro ao carregar veículos para cálculo:', error);
+      resultado.textContent = 'Erro ao calcular valor da reserva.';
     });
 }
 

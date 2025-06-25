@@ -14,7 +14,6 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  /* Fundo usando img/fundo.png */
   background-image: url('../img/fundo.png');
   background-size: cover;
   background-position: center;
@@ -44,7 +43,7 @@ body {
 }
 
 .logo {
-  height: 40px; /* diminuiu de 50px para 40px */
+  height: 40px;
 }
 
 .nav-list {
@@ -80,7 +79,6 @@ body {
 }
 
 .banner {
-  /* Removido fundo do banner original, agora transparente para mostrar fundo do body */
   background: transparent;
   color: white;
   padding: 120px 20px 80px;
@@ -197,3 +195,146 @@ body {
 
 .card {
   background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card img {
+  max-width: 100%;
+  height: 180px; /* Altura fixa para as imagens */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  flex-grow: 1; /* Permite que a descrição ocupe o espaço restante */
+}
+
+.card strong {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+}
+
+.footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  margin-top: auto; /* Empurra o footer para o final da página */
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer p {
+  margin-bottom: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 15px 0;
+  }
+
+  .nav-list {
+    margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+
+  .banner-content p {
+    font-size: 1rem;
+  }
+
+  .reserva {
+    margin: -60px auto 60px;
+    padding: 30px 20px;
+  }
+
+  .veiculos h2 {
+    font-size: 1.8rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 35px;
+  }
+
+  .nav-list a {
+    font-size: 0.9rem;
+  }
+
+  .whatsapp-link {
+    padding: 5px 10px;
+  }
+
+  .banner {
+    padding: 90px 20px 60px;
+  }
+
+  .banner-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .banner-content p {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .reserva {
+    padding: 25px 15px;
+  }
+
+  .form-group input {
+    padding: 10px;
+  }
+
+  .veiculos h2 {
+    font-size: 1.5rem;
+  }
+
+  .card h3 {
+    font-size: 1.3rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+
+  .card strong {
+    font-size: 1.1rem;
+  }
+}
