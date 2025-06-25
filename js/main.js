@@ -71,21 +71,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('reserva-form').addEventListener('submit', calcularReserva);
 
-    // Mobile menu toggle (permanece funcional)
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navList = document.querySelector('.nav-list');
+    // O código de controle do menu móvel (menu-toggle) foi removido daqui
+    // const menuToggle = document.querySelector('.menu-toggle');
+    // const navList = document.querySelector('.nav-list');
 
-    if (menuToggle && navList) {
-        menuToggle.addEventListener('click', function() {
-            navList.classList.toggle('active');
-        });
+    // if (menuToggle && navList) {
+    //     menuToggle.addEventListener('click', function() {
+    //         navList.classList.toggle('active');
+    //     });
 
-        navList.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navList.classList.contains('active')) {
-                    navList.classList.remove('active');
-                }
-            });
-        });
-    }
+    //     navList.querySelectorAll('a').forEach(link => {
+    //         link.addEventListener('click', () => {
+    //             if (navList.classList.contains('active')) {
+    //                 navList.classList.remove('active');
+    //             }
+    //         });
+    //     });
+    // }
 });

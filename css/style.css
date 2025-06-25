@@ -46,6 +46,11 @@ body {
   height: 40px;
 }
 
+/* Remove estilos do menu-toggle, pois ele foi removido do HTML */
+/* .menu-toggle {
+  display: none; 
+} */
+
 .nav-list {
   list-style: none;
   display: flex;
@@ -250,16 +255,31 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
+    /* Mantém a flex-direction: column apenas se quiser que logo e nav fiquem empilhados em mobile */
+    /* Caso contrário, mude para flex-direction: row e ajuste o justify-content */
+    flex-direction: row; /* Alterado para manter em linha em telas menores */
+    justify-content: space-around; /* Ajusta o espaçamento */
     padding: 15px 0;
   }
 
   .nav-list {
-    margin-top: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-top: 0; /* Remove margin-top se estiver em linha */
+    flex-wrap: nowrap; /* Tenta manter os itens na mesma linha */
+    justify-content: flex-end; /* Alinha à direita */
     gap: 15px;
   }
+
+  /* Remover a regra abaixo se você quiser que o menu seja sempre visível */
+  /* .main-nav {
+    display: none; 
+  }
+
+  .nav-list.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  } */
 
   .banner-content h1 {
     font-size: 2rem;
