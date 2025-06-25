@@ -22,6 +22,12 @@ body {
     line-height: 1.6;
     color: var(--color-text-dark);
     background-color: var(--color-white);
+
+    /* NEW: Yellow checkered background covering the entire page */
+    background-image: url('img/fundo.png'); /* Ensure this path is correct */
+    background-repeat: repeat; /* Or 'no-repeat' if you want it stretched */
+    background-size: cover; /* Ensures it covers the whole area */
+    background-attachment: fixed; /* Keeps background fixed when scrolling */
 }
 
 .container {
@@ -48,8 +54,10 @@ body {
 }
 
 .header .logo img {
-    height: 60px; /* Adjust logo size */
+    /* NEW: Adjusted logo size */
+    height: 40px; /* Reduced height for smaller logo */
     width: auto;
+    /* Aligned to top-left by flexbox in parent container */
 }
 
 .main-nav .nav-list {
@@ -125,8 +133,9 @@ h2::after {
 
 /* Hero Section (Banner) */
 .hero {
-    background-size: cover;
-    background-position: center;
+    /* CHANGED: Removed background-image to let body background show */
+    background-image: none;
+    background-color: rgba(0,0,0,0.3); /* Lighter overlay for contrast */
     color: var(--color-white);
     text-align: center;
     padding: 150px 20px;
@@ -143,7 +152,7 @@ h2::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Dark overlay */
+    background-color: rgba(0,0,0,0.5); /* Dark overlay, can adjust transparency */
 }
 
 .hero .container {
@@ -409,7 +418,7 @@ h2::after {
 
 @media (max-width: 480px) {
     .header .logo img {
-        height: 50px;
+        height: 35px; /* Further reduce logo size on very small screens */
     }
 
     .hero h1 {
