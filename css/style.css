@@ -5,7 +5,7 @@
   --text-color: #333;
   --light-text-color: #666;
   --white-color: #ffffff;
-  --dark-gray-color: #444; /* Cor para o "Fale Conosco" (um cinza bem escuro, quase preto) */
+  --dark-gray-color: #000; /* AGORA É PRETO PURO */
   --box-shadow-light: rgba(0, 0, 0, 0.1);
   --box-shadow-medium: rgba(0, 0, 0, 0.2);
   --red-banner-color: #cc0000;
@@ -361,17 +361,14 @@ h2::after {
 .contato {
   padding: 80px 20px;
   background-color: var(--primary-color);
-  color: var(--white-color);
+  color: var(--white-color); /* Mantém o texto geral dentro de .contato branco */
 }
 
-/* Classe para o título "Fale Conosco" ser preto */
-.contact-title-black {
-  color: var(--dark-gray-color); /* Usando a variável para um cinza bem escuro, quase preto */
+/* Garante que o H2 "Fale Conosco" seja preto */
+.contato h2.contact-title-black { /* Mais específico para garantir a cor preta */
+  color: var(--dark-gray-color);
 }
 
-.contato h2 {
-  color: var(--white-color); /* Mantém o h2 dentro de .contato branco por padrão, mas a classe .contact-title-black sobrescreve */
-}
 
 .contato h2::after {
   background-color: var(--secondary-color);
