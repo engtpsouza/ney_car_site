@@ -14,7 +14,11 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--background-color);
+  /* Fundo usando img/fundo.png */
+  background-image: url('../img/fundo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--text-color);
   line-height: 1.6;
   min-height: 100vh;
@@ -40,13 +44,14 @@ body {
 }
 
 .logo {
-  height: 50px;
+  height: 40px; /* diminuiu de 50px para 40px */
 }
 
 .nav-list {
   list-style: none;
   display: flex;
   gap: 25px;
+  align-items: center;
 }
 
 .nav-list a {
@@ -60,12 +65,28 @@ body {
   color: var(--secondary-color);
 }
 
+.whatsapp-link {
+  border: 2px solid #25D366;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #25D366;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.whatsapp-link:hover {
+  background-color: #25D366;
+  color: white;
+}
+
 .banner {
-  background: url('../img/banner.jpg') center center/cover no-repeat;
+  /* Removido fundo do banner original, agora transparente para mostrar fundo do body */
+  background: transparent;
   color: white;
   padding: 120px 20px 80px;
   text-align: center;
   flex-grow: 1;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
 .banner-content h1 {
@@ -176,63 +197,3 @@ body {
 
 .card {
   background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card h3 {
-  margin: 15px;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--primary-color);
-}
-
-.card p {
-  margin: 0 15px 15px;
-  color: #555;
-  flex-grow: 1;
-}
-
-.card strong {
-  margin: 0 15px 20px;
-  font-size: 1.1rem;
-  color: var(--secondary-color);
-}
-
-.footer {
-  background-color: var(--primary-color);
-  color: white;
-  text-align: center;
-  padding: 25px 20px;
-  font-size: 0.9rem;
-  margin-top: auto;
-}
-
-@media (max-width: 600px) {
-  .banner-content h1 {
-    font-size: 2rem;
-  }
-
-  .reserva {
-    margin: -60px auto 60px;
-    padding: 30px 20px;
-  }
-
-  .card img {
-    height: 140px;
-  }
-}
