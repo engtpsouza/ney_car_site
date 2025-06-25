@@ -1,15 +1,11 @@
 :root {
-  /* Cores da sua paleta */
-  --cor-primaria: #1A237E; /* Azul escuro da Placa da Fachada */
-  --cor-secundaria: #FFC107; /* Amarelo da Placa da Fachada e Fundo */
-  --cor-detalhe: #D32F2F; /* Vermelho da logo */
-  --cor-texto-escuro: #212121; /* Texto geral escuro */
-  --cor-texto-claro: #F5F5F5; /* Texto geral claro */
-  --cor-branco: #FFFFFF; /* Branco puro */
-  --cor-cinza-texto: #616161; /* Cinza para textos secundários */
+  --primary-color: #004e89;
+  --secondary-color: #f6b700;
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --btn-hover: #d6a700;
 }
 
-/* Reset básico e tipografia */
 * {
   margin: 0;
   padding: 0;
@@ -18,417 +14,225 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: var(--cor-texto-escuro);
+  background-color: var(--background-color);
+  color: var(--text-color);
   line-height: 1.6;
-  /* Fundo quadriculado principal para TODO O BODY */
-  background-image: url('../img/fundo.jpg');
-  background-repeat: repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-  width: 90%;
   max-width: 1200px;
-  margin: auto;
-  padding: 20px 0;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
 }
 
-/* Cabeçalho (topo) */
-.topo {
-  /* Fundo quadriculado no topo */
-  background-image: url('../img/fundo.jpg');
-  background-repeat: repeat;
-  background-size: cover;
-  padding: 15px 0;
-  position: sticky; /* Mantém o cabeçalho fixo no topo */
-  top: 0;
-  z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.topo .container {
+.header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background-color: var(--primary-color);
+  color: white;
   flex-wrap: wrap;
-  position: relative; /* Garante contexto para z-index, se necessário para filhos */
 }
 
 .logo {
-  /* Estilo do contêiner da imagem da logo */
-  display: flex;
-  align-items: center;
-  margin-right: auto;
-  margin-left: 0;
+  height: 50px;
 }
 
-.logo img {
-  display: block;
-  height: auto;
-  max-height: 30px; /* Será ajustado pelo JS, mas um valor inicial */
-  width: auto;
-  /* IMPORTANTE: Remova qualquer 'position: fixed' ou 'absolute' daqui se estiverem causando a flutuação */
-}
-
-nav ul {
+.nav-list {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
-nav a {
-  color: var(--cor-primaria); /* Cor azul escuro para os links, visível no amarelo */
+.nav-list a {
+  color: white;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.1em; /* Referência para o JS */
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
-nav a:hover {
-  color: var(--cor-detalhe); /* Vermelho no hover */
+.nav-list a:hover {
+  color: var(--secondary-color);
 }
 
-/* Toggle do menu mobile (mantido) */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.menu-toggle .icon-bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--cor-primaria);
-    margin: 5px 0;
-    transition: all 0.3s ease;
-}
-
-
-/* Banner (hero) */
 .banner {
-  /* Não deve ter background-image aqui se a logo flutuante estiver vindo daí */
-  background-image: none; /* Garante que nenhuma imagem indesejada seja carregada aqui */
-  background-color: rgba(0, 0, 0, 0.5); /* Overlay para legibilidade do texto */
-  color: var(--cor-branco);
+  background: url('../img/banner.jpg') center center/cover no-repeat;
+  color: white;
+  padding: 120px 20px 80px;
   text-align: center;
-  padding: 100px 20px;
-  position: relative;
-  z-index: 1; /* Abaixo do header */
+  flex-grow: 1;
 }
 
-.banner .container {
-    position: relative;
-    z-index: 1;
-}
-
-.banner h1 {
+.banner-content h1 {
   font-size: 2.8rem;
-  color: var(--cor-branco);
+  margin-bottom: 0.5rem;
 }
 
-.banner p {
-  font-size: 1.2rem;
-  margin: 10px 0 30px;
+.banner-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .btn {
-  background: var(--cor-detalhe);
-  color: var(--cor-branco);
-  padding: 15px 30px;
+  cursor: pointer;
+  border: none;
   border-radius: 6px;
-  font-weight: bold;
+  font-weight: 600;
+  padding: 14px 30px;
+  font-size: 1rem;
   text-decoration: none;
   display: inline-block;
-  transition: background 0.2s, transform 0.2s;
+  transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-  background: #A02020;
-  transform: translateY(-2px);
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: #000;
 }
 
-/* Estilo para seções com fundo sólido */
-.reserva,
-.veiculos,
-.contato {
-    background-color: var(--cor-branco);
-    padding: 60px 0;
-    margin-top: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    position: relative; /* Para que o z-index funcione */
-    z-index: 5; /* Abaixo do header */
+.btn-primary:hover {
+  background-color: var(--btn-hover);
 }
 
-.reserva .container,
-.veiculos .container,
-.contato .container {
-    padding: 0 20px;
+.btn-secondary {
+  background-color: var(--primary-color);
+  color: #fff;
 }
 
-h2 {
-    font-size: 2.2rem;
-    color: var(--cor-primaria);
-    text-align: center;
-    margin-bottom: 30px;
-    position: relative;
-    padding-bottom: 10px;
+.btn-secondary:hover {
+  background-color: #003766;
 }
 
-h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: var(--cor-detalhe);
-    border-radius: 2px;
+.reserva {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px 30px;
+  margin: -80px auto 80px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 600px;
 }
 
-.reserva form {
+.reserva h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.form-group {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  align-items: center;
+  margin-bottom: 20px;
 }
 
-.reserva label {
-    width: 100%;
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-weight: 600;
-    color: var(--cor-texto-escuro);
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
-input {
+.form-group input {
   padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 300px;
-  font-size: 1em;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+}
+
+#resultado {
+  margin-top: 20px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.veiculos {
+  padding-bottom: 80px;
 }
 
 .veiculos h2 {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-color);
   margin-bottom: 30px;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 30px;
+  padding: 0 10px;
 }
 
 .card {
-  background: var(--cor-branco);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
 }
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
-  display: block;
 }
 
 .card h3 {
-  padding: 15px 15px 5px;
-  color: var(--cor-primaria);
-  font-size: 1.4em;
+  margin: 15px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary-color);
 }
 
 .card p {
-  padding: 0 15px 10px;
-  color: var(--cor-cinza-texto);
+  margin: 0 15px 15px;
+  color: #555;
+  flex-grow: 1;
 }
 
-.card p strong {
-    color: var(--cor-detalhe);
-    font-size: 1.3em;
-    display: block;
-    margin-top: 8px;
-    padding-bottom: 15px;
+.card strong {
+  margin: 0 15px 20px;
+  font-size: 1.1rem;
+  color: var(--secondary-color);
 }
 
-/* Seção de Contato */
-.contato {
-    text-align: center;
-}
-
-.contato p {
-    font-size: 1.1em;
-    max-width: 800px;
-    margin: 0 auto 30px auto;
-    color: var(--cor-texto-escuro);
-}
-
-.contact-info {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.contact-info p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-}
-
-.contact-info strong {
-    color: var(--cor-primaria);
-}
-
-.map-container {
-    margin-top: 40px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 400px;
-    display: block;
-}
-
-/* Rodapé */
-.rodape {
-  background: var(--cor-primaria);
-  color: var(--cor-branco);
+.footer {
+  background-color: var(--primary-color);
+  color: white;
   text-align: center;
-  padding: 25px;
-  margin-top: 50px;
-  font-size: 0.9em;
-  position: relative;
-  z-index: 5;
+  padding: 25px 20px;
+  font-size: 0.9rem;
+  margin-top: auto;
 }
 
-/* Design Responsivo (mantido) */
-@media (max-width: 768px) {
-    .topo .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+@media (max-width: 600px) {
+  .banner-content h1 {
+    font-size: 2rem;
+  }
 
-    .logo {
-        height: auto;
-        width: 60%;
-        margin-bottom: 10px;
-    }
+  .reserva {
+    margin: -60px auto 60px;
+    padding: 30px 20px;
+  }
 
-    .logo img {
-        max-height: 40px;
-        width: auto;
-    }
-
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-    }
-
-    .menu-toggle .icon-bar {
-        background-color: var(--cor-primaria);
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        display: none;
-        transition: all 0.3s ease-in-out;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .banner {
-        padding: 80px 20px;
-    }
-
-    .banner h1 {
-        font-size: 2em;
-    }
-
-    .banner p {
-        font-size: 1em;
-    }
-
-    h2 {
-        font-size: 1.8em;
-    }
-
-    .reserva,
-    .veiculos,
-    .contato {
-        padding: 40px 0;
-    }
-
-    .reserva form {
-        gap: 15px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .card img {
-        height: 220px;
-    }
-
-    .contact-info p {
-        font-size: 0.95em;
-    }
-
-    .map-container iframe {
-        height: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo img {
-        max-height: 30px;
-    }
-
-    .banner h1 {
-        font-size: 1.8em;
-    }
-
-    .btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-
-    h2 {
-        font-size: 1.6em;
-    }
-
-    .card img {
-        height: 180px;
-    }
+  .card img {
+    height: 140px;
+  }
 }

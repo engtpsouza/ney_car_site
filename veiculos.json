@@ -1,19 +1,19 @@
 [
   {
     "modelo": "Fiat Argo 1.0",
-    "descricao": "Compacto, econômico e ideal para cidade.",
+    "descricao": "Carro compacto, econômico e perfeito para uso urbano.",
     "preco_dia": "89.90",
     "imagem": "img/argo.jpg"
   },
   {
     "modelo": "Chevrolet Onix",
-    "descricao": "Tecnologia, conforto e segurança.",
+    "descricao": "Modelo moderno com conforto e tecnologia.",
     "preco_dia": "99.90",
     "imagem": "img/onix.jpg"
   },
   {
     "modelo": "Volkswagen Gol",
-    "descricao": "Popular, prático e econômico.",
+    "descricao": "Popular, econômico e fácil de dirigir.",
     "preco_dia": "79.90",
     "imagem": "img/gol.jpg"
   }
