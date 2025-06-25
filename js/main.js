@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
-    const navList = document.querySelector('.nav-list');
+    const navList = document.querySelector('nav ul'); // Select the unordered list inside nav
 
     if (menuToggle && navList) {
         menuToggle.addEventListener('click', function() {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Handle booking form submission (optional: add actual booking logic)
-    const bookingForm = document.querySelector('.booking-form');
+    const bookingForm = document.querySelector('.reserva form'); // Select the form inside .reserva
     if (bookingForm) {
         bookingForm.addEventListener('submit', function(event) {
             event.preventDefault();

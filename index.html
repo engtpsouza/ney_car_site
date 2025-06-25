@@ -1,95 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ney Car Auto Center & Locadora de Veículos</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/png" href="img/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Ney Car Auto Center</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="img/logo.png" alt="Ney Car Auto Center Logo">
-            </div>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Abrir Menu">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <ul class="nav-list">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#reserva">Reserva</a></li>
-                    <li><a href="#veiculos">Veículos</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header class="topo">
+    <div class="container">
+      <img src="img/logo.PNG" alt="Ney Car Auto Center" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="#reserva">Reserva</a></li>
+          <li><a href="#veiculos">Veículos</a></li>
+          <li><a href="#contato">Contato</a></li> </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section id="home" class="hero" style="background-image: url('img/banner.jpg');">
-            <div class="container">
-                <h1>Seu Carro Ideal para Qualquer Viagem</h1>
-                <p>Conforto, segurança e economia com a Ney Car Auto Center.</p>
-                <a href="#reserva" class="btn btn-primary">Reservar agora</a>
-            </div>
-        </section>
+  <section class="banner">
+    <div class="container">
+      <h1>Seu carro ideal para qualquer viagem</h1>
+      <p>Conforto, segurança e economia com a Ney Car Auto Center</p>
+      <a href="#reserva" class="btn">Reservar agora</a>
+    </div>
+  </section>
 
-        <section id="reserva" class="booking-section section-padding bg-light">
-            <div class="container">
-                <h2>Faça sua Reserva</h2>
-                <form class="booking-form">
-                    <div class="form-group">
-                        <label for="data-retirada">Data de Retirada:</label>
-                        <input type="date" id="data-retirada" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="data-devolucao">Data de Devolução:</label>
-                        <input type="date" id="data-devolucao" required>
-                    </div>
-                    <button type="submit" class="btn btn-secondary">Consultar</button>
-                </form>
-            </div>
-        </section>
+  <section id="reserva" class="reserva container">
+    <h2>Faça sua reserva</h2>
+    <form>
+      <label for="data-retirada">Data de retirada:
+        <input type="date" id="data-retirada" />
+      </label>
+      <label for="data-devolucao">Data de devolução:
+        <input type="date" id="data-devolucao" />
+      </label>
+      <button type="submit" class="btn">Consultar</button>
+    </form>
+  </section>
 
-        <section id="veiculos" class="vehicles-section section-padding">
-            <div class="container">
-                <h2>Veículos Disponíveis</h2>
-                <div id="lista-veiculos" class="cards">
-                    </div>
-            </div>
-        </section>
+  <section id="veiculos" class="veiculos container">
+    <h2>Veículos disponíveis</h2>
+    <div id="lista-veiculos" class="cards"></div>
+  </section>
 
-        <section id="contact" class="contact-us section-padding bg-light">
-            <div class="container">
-                <h2>Entre em Contato</h2>
-                <p>Estamos prontos para atendê-lo em Xique-Xique e região. Visite-nos ou ligue!</p>
-                <div class="contact-info">
-                    <p><strong>Endereço:</strong> Rua da Bahia, 123 - Centro, Xique-Xique - BA</p>
-                    <p><strong>Telefone:</strong> (74) 3661-2291 | (74) 99970-8483</p>
-                    <p><strong>WhatsApp:</strong> (74) 99112-4554</p>
-                    <p><strong>Email:</strong> contato@neycar.com.br</p>
-                    <div class="map-container">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.0362334868!2d-90.19932402127393!3d38.70560868846395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x770a00e57f123456%3A0x770a00e57f123456!2sXique-Xique%2C%20BA%2C%20Brazil!5e0!3m2!1sen!2sbr!4v1678901234567!5m2!1sen!2sbr"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+  <section id="contato" class="contato container">
+    <h2>Entre em Contato</h2>
+    <p>Estamos prontos para atendê-lo em Xique-Xique e região. Visite-nos ou ligue!</p>
+    <div class="contact-info">
+      <p><strong>Endereço:</strong> Rua da Bahia, 123 - Centro, Xique-Xique - BA</p>
+      <p><strong>Telefone:</strong> (74) 3661-2291 | (74) 99970-8483</p>
+      <p><strong>WhatsApp:</strong> (74) 99112-4554</p>
+      <p><strong>Email:</strong> contato@neycar.com.br</p>
+      <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.0362334868!2d-90.19932402127393!3d38.70560868846395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x770a00e57f123456%3A0x770a00e57f123456!2sXique-Xique%2C%20BA%2C%20Brazil!5e0!3m2!1sen!2sbr!4v1678901234567!5m2!1sen!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Ney Car Auto Center & Locadora de Veículos. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2025 Ney Car Auto Center • contato@neycar.com.br</p>
+    </div>
+  </footer>
 
-    <script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

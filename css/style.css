@@ -1,86 +1,82 @@
-/* Variables for easier color management based on your branding */
 :root {
-    --color-primary-orange: #FFC107; /* From fundo.jpg & Placa da Fachada */
-    --color-dark-blue: #1A237E; /* From Placa da Fachada */
-    --color-red-accent: #D32F2F; /* From logo.png & Placa da Fachada */
-    --color-text-dark: #212121;
-    --color-text-light: #F5F5F5;
-    --color-light-bg: #EEEEEE;
-    --color-white: #FFFFFF;
-    --color-grey-text: #616161;
+  /* Using your brand colors from images */
+  --cor-primaria: #1A237E; /* Dark Blue from Placa da Fachada */
+  --cor-secundaria: #FFC107; /* Primary Orange/Yellow from fundo.jpg & Placa da Fachada */
+  --cor-detalhe: #D32F2F; /* Red accent from logo.png & Placa da Fachada */
+  --cor-texto: #212121; /* Dark text */
+  --cor-claro: #F5F5F5; /* Light background/text */
+  --cor-white: #FFFFFF; /* Pure white */
+  --cor-cinza-texto: #616161; /* Grey for subtle text */
 }
 
-/* Basic Reset & Typography */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Using Google Font as per original */
-    line-height: 1.6;
-    color: var(--color-text-dark);
-    background-color: var(--color-white);
-
-    /* NEW: Yellow checkered background covering the entire page */
-    background-image: url('img/fundo.png'); /* Ensure this path is correct */
-    background-repeat: repeat; /* Or 'no-repeat' if you want it stretched */
-    background-size: cover; /* Ensures it covers the whole area */
-    background-attachment: fixed; /* Keeps background fixed when scrolling */
+  font-family: 'Poppins', sans-serif;
+  color: var(--cor-texto);
+  line-height: 1.6;
+  
+  /* NEW: Global yellow checkered background */
+  background-image: url('../img/fundo.jpg'); /* Ensure path to fundo.jpg is correct */
+  background-repeat: repeat;
+  background-size: cover; /* Covers the entire background area */
+  background-attachment: fixed; /* Stays fixed when scrolling */
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0;
 }
 
-/* Header */
-.header {
-    background-color: var(--color-dark-blue);
-    color: var(--color-white);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+/* Header adjustments for logo position and size */
+.topo { /* Refers to your header class */
+  background: var(--cor-primaria); /* */
+  color: var(--cor-white); /* */
+  padding: 15px 0; /* Reduced padding for more compact header */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.topo .container { /* */
+  display: flex;
+  align-items: center; /* */
+  justify-content: space-between; /* */
+  flex-wrap: wrap; /* */
 }
 
-.header .logo img {
-    /* NEW: Adjusted logo size */
-    height: 40px; /* Reduced height for smaller logo */
-    width: auto;
-    /* Aligned to top-left by flexbox in parent container */
+.logo { /* Your logo image class */
+  height: 40px; /* NEW: Smaller logo size */
+  width: auto;
+  margin-right: auto; /* Pushes navigation to the right */
+  margin-left: 0; /* Ensures it's pushed to the far left */
 }
 
-.main-nav .nav-list {
-    list-style: none;
-    display: flex;
+nav ul { /* */
+  list-style: none; /* */
+  display: flex; /* */
+  gap: 20px; /* */
 }
 
-.main-nav .nav-list li {
-    margin-left: 30px;
+nav a { /* */
+  color: var(--cor-white); /* */
+  text-decoration: none; /* */
+  font-weight: 600; /* */
+  transition: color 0.3s ease;
 }
 
-.main-nav .nav-list a {
-    color: var(--color-white);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+nav a:hover {
+  color: var(--cor-secundaria);
 }
 
-.main-nav .nav-list a:hover {
-    color: var(--color-primary-orange);
-}
-
-/* Mobile Menu Toggle */
+/* Mobile menu toggle (if you want to add it from previous version) */
 .menu-toggle {
     display: none; /* Hidden on desktop */
     background: none;
@@ -93,28 +89,75 @@ body {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: var(--color-white);
+    background-color: var(--cor-white);
     margin: 5px 0;
     transition: all 0.3s ease;
 }
 
-/* Sections General Styling */
-.section-padding {
-    padding: 80px 0;
+/* Banner section (hero) */
+.banner { /* Refers to your banner class */
+  background-image: none; /* NEW: Remove specific banner image to show body background */
+  color: var(--cor-white);
+  text-align: center;
+  padding: 100px 20px; /* */
+  position: relative;
+  /* Add an overlay to make text readable on top of checkered background */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
 }
 
-.bg-light {
-    background-color: var(--color-light-bg);
+.banner .container {
+    position: relative;
+    z-index: 1; /* Ensure text is above overlay */
 }
 
-h1, h2, h3 {
-    color: var(--color-dark-blue);
-    text-align: center;
-    margin-bottom: 20px;
+.banner h1 { /* */
+  font-size: 2.8rem; /* Adjusted size */
+  color: var(--cor-white); /* Ensure text is white */
+}
+
+.banner p { /* */
+  font-size: 1.2rem; /* */
+  margin: 10px 0 30px; /* Adjusted margin */
+}
+
+.btn { /* */
+  background: var(--cor-detalhe); /* Using red accent for primary button */
+  color: var(--cor-white);
+  padding: 15px 30px; /* Adjusted padding */
+  border-radius: 6px; /* */
+  font-weight: bold; /* */
+  text-decoration: none; /* */
+  display: inline-block; /* */
+  transition: background 0.2s, transform 0.2s; /* Added transform for hover effect */
+}
+
+.btn:hover { /* */
+  background: #A02020; /* Darker red on hover */
+  transform: translateY(-2px);
+}
+
+/* Section styling for solid backgrounds over checkered body */
+.reserva, /* */
+.veiculos, /* */
+.contato { /* New contact section class */
+    background-color: var(--cor-white); /* Solid white background */
+    padding: 60px 0; /* Adjusted padding */
+    margin-top: 40px; /* Space from previous section */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.reserva .container,
+.veiculos .container,
+.contato .container {
+    padding: 0 20px; /* Padding inside container, if needed */
 }
 
 h2 {
-    font-size: 2.5em;
+    font-size: 2.2rem;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 30px;
     position: relative;
     padding-bottom: 10px;
 }
@@ -127,178 +170,99 @@ h2::after {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background-color: var(--color-red-accent);
+    background-color: var(--cor-detalhe); /* Red underline */
     border-radius: 2px;
 }
 
-/* Hero Section (Banner) */
-.hero {
-    /* CHANGED: Removed background-image to let body background show */
-    background-image: none;
-    background-color: rgba(0,0,0,0.3); /* Lighter overlay for contrast */
-    color: var(--color-white);
-    text-align: center;
-    padding: 150px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+.reserva form { /* */
+  display: flex; /* */
+  flex-direction: column; /* */
+  gap: 20px; /* */
+  align-items: center; /* Center form elements */
 }
 
-.hero::before { /* Overlay for better text readability */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Dark overlay, can adjust transparency */
-}
-
-.hero .container {
-    position: relative; /* Ensure content is above overlay */
-    z-index: 1;
-}
-
-.hero h1 {
-    font-size: 3.5em;
-    margin-bottom: 20px;
-    color: var(--color-white);
-}
-
-.hero p {
-    font-size: 1.3em;
-    margin-bottom: 40px;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background-color: var(--color-red-accent);
-    color: var(--color-white);
-}
-
-.btn-primary:hover {
-    background-color: #A02020; /* Darker red */
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: var(--color-primary-orange);
-    color: var(--color-text-dark);
-}
-
-.btn-secondary:hover {
-    background-color: #FFB300; /* Darker orange */
-    transform: translateY(-2px);
-}
-
-/* Booking Section (Reserva) */
-.booking-section {
-    background: var(--color-white);
-    padding: 40px;
-    margin-top: -40px; /* Overlap with hero for modern look */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    position: relative; /* For z-index */
-    z-index: 50; /* Above hero overlay */
-}
-
-.booking-form {
-    display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.booking-form .form-group {
+.reserva label {
+    width: 100%;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    flex: 1; /* Allows items to grow */
-    min-width: 250px; /* Minimum width for each input group */
-}
-
-.booking-form label {
-    margin-bottom: 8px;
     font-weight: 600;
-    color: var(--color-dark-blue);
+    color: var(--cor-texto);
 }
 
-.booking-form input[type="date"] {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    font-size: 1em;
+input[type="date"] { /* */
+  padding: 12px; /* Adjusted padding */
+  border: 1px solid #ccc; /* */
+  border-radius: 5px;
+  width: 100%; /* */
+  max-width: 300px; /* */
+  font-size: 1em;
 }
 
-.booking-form .btn-secondary {
-    margin-top: 30px; /* Space from inputs */
-    align-self: center; /* Center the button */
-    padding: 15px 40px;
+.veiculos h2 { /* */
+  margin-bottom: 30px; /* Adjusted margin */
 }
 
-/* Vehicles Section */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+.cards { /* */
+  display: grid; /* */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted min-width for cards */
+  gap: 25px; /* Adjusted gap */
+  margin-top: 40px;
 }
 
-.card {
-    background: var(--color-white);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
+.card { /* */
+  background: var(--cor-white); /* */
+  border-radius: 10px; /* */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Stronger shadow */
+  overflow: hidden; /* */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+  text-align: center;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+.card:hover { /* */
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* */
 }
 
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block; /* Remove extra space below image */
+.card img { /* */
+  width: 100%; /* */
+  height: 200px; /* Adjusted height */
+  object-fit: cover; /* */
+  display: block;
 }
 
-.card h3 {
-    color: var(--color-dark-blue);
-    padding: 15px 15px 5px;
-    font-size: 1.5em;
+.card h3 { /* */
+  padding: 15px 15px 5px; /* Adjusted padding */
+  color: var(--cor-primaria); /* Dark blue for titles */
+  font-size: 1.4em;
 }
 
-.card p {
-    padding: 0 15px;
-    color: var(--color-grey-text);
+.card p { /* */
+  padding: 0 15px 10px; /* */
+  color: var(--cor-cinza-texto);
 }
 
 .card p strong {
-    color: var(--color-red-accent);
-    font-size: 1.2em;
-    display: block; /* New line for price */
-    margin-top: 10px;
+    color: var(--cor-detalhe); /* Red for price */
+    font-size: 1.3em;
+    display: block;
+    margin-top: 8px;
     padding-bottom: 15px;
 }
 
-/* Contact Section */
+/* Contact Section Styling */
+.contato {
+    text-align: center;
+}
+
+.contato p {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: var(--cor-texto);
+}
+
 .contact-info {
     text-align: center;
     margin-top: 30px;
@@ -310,7 +274,7 @@ h2::after {
 }
 
 .contact-info strong {
-    color: var(--color-dark-blue);
+    color: var(--cor-primaria);
 }
 
 .map-container {
@@ -329,28 +293,38 @@ h2::after {
     display: block;
 }
 
-/* Footer */
-.footer {
-    background-color: var(--color-dark-blue);
-    color: var(--color-white);
-    text-align: center;
-    padding: 25px 0;
-    margin-top: 50px;
-    font-size: 0.9em;
+
+.rodape { /* Refers to your footer class */
+  background: var(--cor-primaria); /* */
+  color: var(--cor-white); /* */
+  text-align: center; /* */
+  padding: 25px; /* Adjusted padding */
+  margin-top: 50px; /* Adjusted margin */
+  font-size: 0.9em;
 }
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .header .container {
+    .topo .container {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .header .logo {
-        margin-bottom: 15px;
+    .logo { /* Adjusted for smaller screens */
+        height: 35px;
+        margin-bottom: 10px;
     }
 
-    .main-nav .nav-list {
+    /* Mobile Menu Toggle (re-adding from previous structure for responsiveness) */
+    .menu-toggle {
+        display: block; /* Show on mobile */
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    nav ul {
         flex-direction: column;
         width: 100%;
         text-align: center;
@@ -358,49 +332,38 @@ h2::after {
         transition: all 0.3s ease-in-out;
     }
 
-    .main-nav .nav-list.active {
+    nav ul.active {
         display: flex; /* Shown when active */
     }
 
-    .main-nav .nav-list li {
+    nav ul li {
         margin: 10px 0;
     }
 
-    .menu-toggle {
-        display: block; /* Show on mobile */
-        position: absolute;
-        right: 20px;
-        top: 25px;
+    .banner {
+        padding: 80px 20px;
     }
 
-    .hero {
-        padding: 100px 20px;
+    .banner h1 {
+        font-size: 2em;
     }
 
-    .hero h1 {
-        font-size: 2.5em;
-    }
-
-    .hero p {
+    .banner p {
         font-size: 1em;
     }
 
     h2 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
-    .section-padding {
-        padding: 50px 0;
+    .reserva,
+    .veiculos,
+    .contato {
+        padding: 40px 0;
     }
 
-    .booking-form {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .booking-form .form-group {
-        width: 100%; /* Full width for inputs on mobile */
-        max-width: 300px;
+    .reserva form {
+        gap: 15px;
     }
 
     .cards {
@@ -408,33 +371,37 @@ h2::after {
     }
 
     .card img {
-        height: 250px; /* Adjust image height for better mobile view */
+        height: 220px;
     }
 
     .contact-info p {
-        font-size: 1em;
-    }
-}
-
-@media (max-width: 480px) {
-    .header .logo img {
-        height: 35px; /* Further reduce logo size on very small screens */
-    }
-
-    .hero h1 {
-        font-size: 2em;
-    }
-
-    .btn {
-        padding: 12px 25px;
-        font-size: 0.9em;
-    }
-
-    h2 {
-        font-size: 1.8em;
+        font-size: 0.95em;
     }
 
     .map-container iframe {
         height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        height: 30px;
+    }
+
+    .banner h1 {
+        font-size: 1.8em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .card img {
+        height: 180px;
     }
 }
