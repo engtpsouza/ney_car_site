@@ -11,7 +11,8 @@ fetch('veiculos.json')
       </div>
     `).join('');
   })
-  .catch(error => {
-    console.error('Erro ao carregar os veículos:', error);
-    document.getElementById('lista-veiculos').innerHTML = `<p>Erro ao carregar os veículos.</p>`;
+  .catch(err => {
+    document.getElementById('lista-veiculos').innerHTML =
+      '<p>Erro ao carregar os veículos. Verifique o arquivo veiculos.json.</p>';
+    console.error(err);
   });
