@@ -1,20 +1,44 @@
 [
   {
     "modelo": "Fiat Argo 1.0",
+    "categoria": "Compacto",
     "descricao": "Carro compacto, econômico e perfeito para uso urbano.",
     "preco_dia": "89.90",
     "imagem": "img/argo.jpg"
   },
   {
     "modelo": "Chevrolet Onix",
+    "categoria": "Sedan Compacto",
     "descricao": "Modelo moderno com conforto e tecnologia.",
     "preco_dia": "99.90",
     "imagem": "img/onix.jpg"
   },
   {
     "modelo": "Volkswagen Gol",
+    "categoria": "Hatch",
     "descricao": "Popular, econômico e fácil de dirigir.",
     "preco_dia": "79.90",
     "imagem": "img/gol.jpg"
+  },
+  {
+    "modelo": "Hyundai HB20",
+    "categoria": "Hatch",
+    "descricao": "Estilo e desempenho para o dia a dia.",
+    "preco_dia": "95.00",
+    "imagem": "img/hb20.jpg"
+  },
+  {
+    "modelo": "Renault Kwid",
+    "categoria": "Subcompacto",
+    "descricao": "O SUV dos compactos, ideal para cidade.",
+    "preco_dia": "75.00",
+    "imagem": "img/kwid.jpg"
+  },
+  {
+    "modelo": "Fiat Cronos",
+    "categoria": "Sedan",
+    "descricao": "Espaçoso e confortável para viagens.",
+    "preco_dia": "110.00",
+    "imagem": "img/cronos.jpg"
   }
 ]

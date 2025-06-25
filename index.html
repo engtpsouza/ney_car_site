@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ney Car Auto Center - Aluguel de Veículos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Ney Car Auto Center - Seu Carro Ideal para Qualquer Ocasião</title>
+  <meta name="description" content="Aluguel de veículos em Xique Xique e região. Conforto, segurança e os melhores preços para sua viagem." />
+  <meta name="keywords" content="aluguel de carros, auto center, Ney Car, veículos, Xique Xique, Bahia, locadora de veículos, carro, alugar" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   <header class="header-full-width">
@@ -14,54 +19,94 @@
       <img src="img/logo.png" alt="Ney Car Auto Center" class="logo" />
       <nav class="main-nav">
         <ul class="nav-list">
-          <li><a href="#reserva">Reserva</a></li>
+          <li><a href="#inicio">Início</a></li>
           <li><a href="#veiculos">Veículos</a></li>
-          <li>
-            <a href="https://wa.me/5577998765432" target="_blank" rel="noopener noreferrer" class="whatsapp-link" aria-label="WhatsApp">
-              WhatsApp
-            </a>
-          </li>
+          <li><a href="#reserva">Reservar</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="banner">
-    <div class="container banner-content">
-      <h1>Alugue o carro ideal para sua viagem</h1>
+  <section id="inicio" class="hero">
+    <div class="container hero-content" data-aos="fade-up">
+      <h1>Seu carro ideal para qualquer ocasião</h1>
       <p>Conforto, segurança e preços que cabem no seu bolso.</p>
-      <a href="#reserva" class="btn btn-primary">Reserve agora</a>
+      <a href="#reserva" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">Reserve agora</a>
     </div>
   </section>
 
-  <section id="reserva" class="reserva container">
-    <h2>Reserve seu veículo</h2>
+  <section id="reserva" class="reserva container" data-aos="fade-up">
+    <h2>Faça sua Reserva</h2>
     <form id="reserva-form">
-      <div class="form-group">
-        <label for="data-retirada">Data de Retirada</label>
-        <input type="date" id="data-retirada" required />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" placeholder="Seu nome" required />
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" placeholder="(DD) 9XXXX-XXXX" required pattern="^\(\d{2}\)\s\d{4,5}-\d{4}$" title="Formato: (DD) 9XXXX-XXXX ou (DD) XXXX-XXXX" />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="data-devolucao">Data de Devolução</label>
-        <input type="date" id="data-devolucao" required />
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tipo-carro">Tipo de Carro (Opcional)</label>
+          <select id="tipo-carro">
+            <option value="">Qualquer tipo</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="data-retirada">Data de Retirada</label>
+          <input type="date" id="data-retirada" required />
+        </div>
+        <div class="form-group">
+          <label for="data-devolucao">Data de Devolução</label>
+          <input type="date" id="data-devolucao" required />
+        </div>
       </div>
-      <button type="submit" class="btn btn-secondary">Consultar</button>
+      <button type="submit" class="btn btn-secondary">Consultar Disponibilidade e Valores</button>
     </form>
-    <div id="resultado"></div>
+    <div id="resultado-reserva"></div>
   </section>
 
   <section id="veiculos" class="veiculos container">
     <h2>Veículos Disponíveis</h2>
-    <div class="cards" id="lista-veiculos"></div>
+    <div class="cards" id="lista-veiculos">
+      </div>
   </section>
+
+  <section id="contato" class="contato container">
+    <h2 data-aos="fade-up">Entre em Contato</h2>
+    <div class="contact-content">
+      <div class="contact-info" data-aos="fade-right">
+        <p>Estamos prontos para atendê-lo em Xique Xique e região. Visite-nos ou ligue!</p>
+        <p><strong>Endereço:</strong> Rua da Bahia, 123 - Centro, Xique Xique - BA</p>
+        <p><strong>Telefone:</strong> (74) 3661-2291 | (74) 99970-8483</p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5574999708483" target="_blank" rel="noopener noreferrer">(74) 99970-8483</a></p>
+        <p><strong>Email:</strong> contato@neycar.com.br</p>
+      </div>
+      <div class="contact-map" data-aos="fade-left">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3820.6729030097204!2d-42.72707761865734!3d-10.8283922851494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x74a22923c8340d%3A0x242d9c20a4704d00!2sR.%20da%20Bahia%2C%20123%20-%20Centro%2C%20Xique%20Xique%20-%20BA%2C%2047400-000!5e0!3m2!1spt-BR!2sbr!4v1678901234567!5m2!1spt-BR!2sbr"
+          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/5574999708483" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+    <img src="img/icon-whatsapp.png" alt="WhatsApp" />
+  </a>
 
   <footer class="footer">
     <div class="container">
       <p>© 2025 Ney Car Auto Center. Todos os direitos reservados.</p>
-      <p>Contato: contato@neycar.com.br</p>
+      <p>Desenvolvido por Ney Car.</p>
     </div>
   </footer>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
