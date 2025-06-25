@@ -22,9 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLink = document.querySelector('nav a'); // Pega o primeiro link de navegação para referência
 
     if (logoImg && navLink) {
-        // Obter o estilo computado do link para pegar o tamanho da fonte
         const navLinkFontSize = parseFloat(window.getComputedStyle(navLink).fontSize);
-        // Ajustar a altura máxima da logo. O 1.2 é um fator de ajuste, pode ser alterado
+        // O multiplicador pode ser ajustado para um encaixe visual melhor
         logoImg.style.maxHeight = `${navLinkFontSize * 1.2}px`;
     }
 
