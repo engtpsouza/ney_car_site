@@ -1,7 +1,7 @@
 [
   {
     "modelo": "Fiat Argo 1.0",
-    "descricao": "Econômico, ar-condicionado, 5 lugares.",
+    "descricao": "Compacto, econômico e ideal para cidade.",
     "preco_dia": "89.90",
     "imagem": "img/argo.jpg"
   },
@@ -10,5 +10,11 @@
     "descricao": "Tecnologia, conforto e segurança.",
     "preco_dia": "99.90",
     "imagem": "img/onix.jpg"
+  },
+  {
+    "modelo": "Volkswagen Gol",
+    "descricao": "Popular, prático e econômico.",
+    "preco_dia": "79.90",
+    "imagem": "img/gol.jpg"
   }
 ]

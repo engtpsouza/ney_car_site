@@ -78,6 +78,11 @@ nav a {
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #e5a500;
 }
 
 .reserva {
@@ -132,12 +137,10 @@ input[type="date"] {
 
 .card h3 {
   padding: 10px 15px 0;
-  font-size: 1.2rem;
 }
 
 .card p {
   padding: 0 15px 10px;
-  font-size: 0.95rem;
 }
 
 .rodape {
