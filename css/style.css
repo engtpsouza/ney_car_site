@@ -165,7 +165,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/hero-background2.jpg'); /* Adicione uma imagem de fundo para o hero */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('../img/hero-background.jpg'); /* Adicione uma imagem de fundo para o hero */
   background-size: cover;
   background-position: center;
   color: var(--white-color);
@@ -363,8 +363,14 @@ h2::after {
   color: var(--white-color);
 }
 
+/* Nova classe para o título da seção de contato */
+.contact-title-black {
+  color: var(--dark-gray-color); /* Usando a variável para uma cor mais escura */
+  /* Se precisar de preto puro, use: color: #000; */
+}
+
 .contato h2 {
-  color: var(--white-color);
+  color: var(--white-color); /* Mantém o h2 dentro de .contato branco por padrão, mas a classe .contact-title-black sobrescreve */
 }
 
 .contato h2::after {
