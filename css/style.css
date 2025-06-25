@@ -11,6 +11,7 @@
   --red-banner-color: #cc0000;
 }
 
+
 * {
   margin: 0;
   padding: 0;
@@ -361,18 +362,18 @@ h2::after {
 .contato {
   padding: 80px 20px;
   background-color: var(--primary-color);
-  color: var(--white-color); /* Mantém o texto geral dentro de .contato branco */
+  color: var(--white-color); /* Define a cor padrão do texto dentro da seção de contato como branco */
 }
 
-/* Garante que o H2 "Fale Conosco" seja preto */
-.contato h2.contact-title-black { /* Mais específico para garantir a cor preta */
-  color: var(--dark-gray-color);
+/* Regra para garantir que o H2 "Fale Conosco" seja PRIMARY COLOR (Azul Escuro) */
+h2.contact-title-black { /* Alvo direto da classe no h2 */
+  color: var(--primary-color) !important; /* Força a cor azul primária */
 }
-
 
 .contato h2::after {
   background-color: var(--secondary-color);
 }
+
 
 .contact-content {
   display: flex;
