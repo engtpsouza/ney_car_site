@@ -32,24 +32,26 @@ body {
   width: 100%;
 }
 
-.header {
+/* Nova classe para a faixa de topo */
+.header-full-width {
+  background-color: var(--secondary-color); /* Amarelo */
+  width: 100%; /* Ocupa toda a largura */
+  padding: 15px 0; /* Espaçamento vertical */
+}
+
+/* Contêiner interno para limitar a largura do conteúdo */
+.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  background-color: var(--primary-color);
-  color: white;
-  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .logo {
-  height: 40px;
+  height: 160px; /* 4 vezes maior que 40px */
 }
-
-/* Remove estilos do menu-toggle, pois ele foi removido do HTML */
-/* .menu-toggle {
-  display: none; 
-} */
 
 .nav-list {
   list-style: none;
@@ -59,14 +61,14 @@ body {
 }
 
 .nav-list a {
-  color: white;
+  color: var(--primary-color); /* Texto azul para contrastar com o amarelo */
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
 }
 
 .nav-list a:hover {
-  color: var(--secondary-color);
+  color: #003766; /* Tom mais escuro de azul no hover */
 }
 
 .whatsapp-link {
@@ -254,32 +256,22 @@ body {
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .header {
-    /* Mantém a flex-direction: column apenas se quiser que logo e nav fiquem empilhados em mobile */
-    /* Caso contrário, mude para flex-direction: row e ajuste o justify-content */
-    flex-direction: row; /* Alterado para manter em linha em telas menores */
-    justify-content: space-around; /* Ajusta o espaçamento */
-    padding: 15px 0;
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os itens à esquerda em telas menores */
+  }
+
+  .logo {
+    height: 120px; /* Reduz um pouco o tamanho da logo em telas menores */
+    margin-bottom: 10px; /* Adiciona espaço abaixo da logo */
   }
 
   .nav-list {
-    margin-top: 0; /* Remove margin-top se estiver em linha */
-    flex-wrap: nowrap; /* Tenta manter os itens na mesma linha */
-    justify-content: flex-end; /* Alinha à direita */
+    margin-top: 10px; /* Adiciona espaço acima da navegação */
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
   }
-
-  /* Remover a regra abaixo se você quiser que o menu seja sempre visível */
-  /* .main-nav {
-    display: none; 
-  }
-
-  .nav-list.active {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-  } */
 
   .banner-content h1 {
     font-size: 2rem;
@@ -306,7 +298,7 @@ body {
 
 @media (max-width: 480px) {
   .logo {
-    height: 35px;
+    height: 100px; /* Reduz ainda mais para telas muito pequenas */
   }
 
   .nav-list a {
