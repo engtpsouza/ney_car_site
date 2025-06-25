@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow">
+  <title>Ney Car Auto Center - Aluguel de Veículos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <img src="img/Ney Car Auto Center - Placa da Fachada.png" alt="Logo Ney Car Auto Center" class="logo" />
+    </div>
+  </header>
+
+  <main>
+    <section class="banner">
+      <div class="container">
+        <img src="img/promocao-neycar.png" alt="Promoção Imperdível Ney Car" />
+      </div>
+    </section>
+
+    <section class="reserva">
+      <div class="container">
+        <h2>Reserve seu veículo</h2>
+        <p>Selecione as datas abaixo para calcular o valor total e solicitar sua locação.</p>
+        <div class="datas-container">
+          <label for="data-retirada">
+            Data de Retirada:
+            <input type="date" id="data-retirada" />
+          </label>
+          <label for="data-devolucao">
+            Data de Devolução:
+            <input type="date" id="data-devolucao" />
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="veiculos">
+      <div class="container">
+        <h2>Nossos veículos disponíveis</h2>
+        <div class="carousel-wrapper">
+          <button class="nav-btn prev" id="prev-btn" aria-label="Veículo anterior">&#10094;</button>
+          <div class="carousel">
+            <div class="carousel-track" id="carros-carousel">
+              </div>
+          </div>
+          <button class="nav-btn next" id="next-btn" aria-label="Próximo veículo">&#10095;</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2025 Ney Car Auto Center. Todos os direitos reservados.</p>
+      <p>Desenvolvido com tecnologia e design de ponta.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
