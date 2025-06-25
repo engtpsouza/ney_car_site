@@ -1,10 +1,9 @@
 :root {
-  --primary-color: #1A237E; /* Azul escuro, se ainda for necessário em outro lugar */
-  --secondary-color: #FFC107; /* Amarelo principal para botões/destaques */
-  --background-color: #f9f9f9; /* Fundo geral para seções */
+  --primary-color: #004e89;
+  --secondary-color: #f6b700;
+  --background-color: #f9f9f9;
   --text-color: #333;
-  --btn-hover: #e5a500; /* Variação do amarelo para hover */
-  --logo-red: #D32F2F; /* Vermelho da logo */
+  --btn-hover: #d6a700;
 }
 
 * {
@@ -15,11 +14,10 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  /* Usando o fundo quadriculado para o body, o que também afetará o header se não for sobrescrito */
-  background-image: url('../img/fundo.jpg'); /* */
+  background-image: url('../img/fundo.png');
   background-size: cover;
   background-position: center;
-  background-repeat: repeat; /* Para garantir o padrão quadriculado */
+  background-repeat: no-repeat;
   color: var(--text-color);
   line-height: 1.6;
   min-height: 100vh;
@@ -39,23 +37,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  /* Fundo do cabeçalho agora com o padrão quadriculado */
-  background-image: url('../img/fundo.jpg'); /* */
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-  color: var(--text-color); /* A cor do texto pode ser escura para contrastar com o amarelo */
+  background-color: var(--primary-color);
+  color: white;
   flex-wrap: wrap;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra para destacar */
-  z-index: 1000; /* Garante que fique acima de outros elementos */
-  position: sticky; /* Mantém o cabeçalho fixo no topo */
-  top: 0;
 }
 
 .logo {
-  /* Aumentando o tamanho da logo */
-  height: 80px; /* Aumentado de 40px */
-  width: auto; /* Mantém a proporção */
+  height: 40px;
 }
 
 .nav-list {
@@ -66,20 +54,18 @@ body {
 }
 
 .nav-list a {
-  color: var(--primary-color); /* Cor azul escuro para os links, para contrastar com o amarelo */
+  color: white;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
 }
 
 .nav-list a:hover {
-  color: var(--logo-red); /* Vermelho da logo no hover */
+  color: var(--secondary-color);
 }
 
 .whatsapp-link {
-  display: flex; /* Para alinhar o ícone e o texto */
-  align-items: center;
-  border: 2px solid #25D366; /* Verde do WhatsApp */
+  border: 2px solid #25D366;
   padding: 6px 12px;
   border-radius: 5px;
   font-weight: 600;
@@ -92,22 +78,13 @@ body {
   color: white;
 }
 
-.whatsapp-icon {
-  height: 24px; /* Tamanho do ícone */
-  margin-right: 8px; /* Espaçamento entre ícone e texto */
-}
-
 .banner {
-  /* A imagem de fundo do banner será o fundo.jpg para manter a consistência */
-  background-image: url('../img/fundo.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-  color: var(--primary-color); /* Cor do texto do banner para contrastar com o amarelo */
+  background: transparent;
+  color: white;
   padding: 120px 20px 80px;
   text-align: center;
   flex-grow: 1;
-  text-shadow: 0 0 5px rgba(255,255,255,0.7); /* Suaviza o texto sobre o fundo amarelo */
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
 .banner-content h1 {
@@ -277,10 +254,6 @@ body {
     padding: 15px 0;
   }
 
-  .logo {
-    height: 60px; /* Ajuste para mobile */
-  }
-
   .nav-list {
     margin-top: 15px;
     flex-wrap: wrap;
@@ -313,7 +286,7 @@ body {
 
 @media (max-width: 480px) {
   .logo {
-    height: 50px; /* Ajuste menor para telas muito pequenas */
+    height: 35px;
   }
 
   .nav-list a {
