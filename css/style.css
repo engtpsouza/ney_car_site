@@ -52,10 +52,12 @@ body {
 .header-full-width {
   background-color: var(--secondary-color);
   width: 100%;
-  padding: 5px 0; /* Reduzido pela metade */
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  min-height: 30vh; /* Espaço acima e abaixo da logo */
 }
 
 .header-content {
@@ -63,13 +65,15 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  position: relative;
+  width: 100%;
+  padding: 15% 0; /* Espaço acima e abaixo da logo */
 }
 
 .logo {
   height: 70px;
   max-width: 100%;
-  margin: 5px auto; /* Reduzido pela metade */
+  margin: 0 auto;
+  display: block;
 }
 
 /* Botão de menu flutuante no celular */
@@ -82,8 +86,8 @@ body {
   cursor: pointer;
   padding: 10px;
   position: fixed;
-  top: 15px; /* Posicionado acima da logo */
-  right: 15px;
+  top: 20px;
+  right: 20px;
   z-index: 1001;
   background: var(--secondary-color);
   border-radius: 50%;
@@ -142,7 +146,7 @@ body {
 .phone-banner {
   background-color: var(--red-banner-color);
   color: var(--white-color);
-  padding: 5px 0; /* Reduzido pela metade */
+  padding: 10px 0;
   text-align: center;
   font-size: 0.95rem;
   width: 100%;
@@ -184,11 +188,11 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/hero-background2.jpg') no-repeat center center/cover;
   color: var(--white-color);
   text-align: center;
-  padding: 75px 20px; /* Reduzido pela metade */
+  padding: 150px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 40vh; /* Reduzido pela metade */
+  min-height: 80vh;
 }
 
 .hero-content {
@@ -244,7 +248,7 @@ body {
 .reserva {
   background-color: var(--white-color);
   padding: 40px;
-  margin: -40px auto 0; /* Ajustado para o novo tamanho */
+  margin: -80px auto 0;
   border-radius: 10px;
   box-shadow: 0 5px 15px var(--box-shadow-light);
   z-index: 10;
@@ -310,7 +314,7 @@ body {
 
 /* Veículos Section */
 .veiculos {
-  padding: 40px 0; /* Reduzido pela metade */
+  padding: 80px 0;
   background-color: var(--background-color);
   text-align: center;
 }
@@ -403,7 +407,7 @@ body {
 
 /* Contato Section */
 .contato {
-  padding: 40px 0; /* Reduzido pela metade */
+  padding: 80px 0;
   background-color: var(--tertiary-color);
 }
 
@@ -504,7 +508,7 @@ body {
 .footer {
   background-color: var(--primary-color);
   color: var(--white-color);
-  padding: 15px 0; /* Reduzido pela metade */
+  padding: 30px 0;
   text-align: center;
 }
 
@@ -543,8 +547,8 @@ body {
   .menu-toggle {
     display: flex;
     position: fixed;
-    top: 15px;
-    right: 15px;
+    top: 20px;
+    right: 20px;
     background: var(--secondary-color);
     border-radius: 50%;
     width: 50px;
@@ -608,7 +612,7 @@ body {
   }
   
   .hero {
-    padding: 50px 20px; /* Reduzido pela metade */
+    padding: 100px 20px;
   }
   
   .hero-content h1 {
@@ -621,7 +625,7 @@ body {
   
   .reserva {
     padding: 30px 20px;
-    margin-top: -25px; /* Ajustado para o novo tamanho */
+    margin-top: -50px;
   }
   
   .form-row {
@@ -646,7 +650,7 @@ body {
   /* Logo maior no celular */
   .logo {
     height: 140px; /* Duas vezes maior (70px * 2) */
-    margin: 5px auto; /* Reduzido pela metade */
+    margin: 10px auto;
     display: block;
   }
 
@@ -663,6 +667,18 @@ body {
     justify-content: center;
     gap: 15px;
   }
+  
+  /* Espaço acima e abaixo da logo */
+  .header-full-width {
+    min-height: 30vh;
+    padding: 15% 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -673,7 +689,7 @@ body {
   
   .logo {
     height: 140px;
-    margin-bottom: 5px; /* Reduzido pela metade */
+    margin-bottom: 10px;
   }
 
   .hero-content h1 {
@@ -688,7 +704,7 @@ body {
   }
   
   .hero {
-    padding: 40px 15px; /* Reduzido pela metade */
+    padding: 80px 15px;
   }
   
   .reserva {
@@ -711,5 +727,11 @@ body {
   .whatsapp-float img {
     width: 30px;
     height: 30px;
+  }
+  
+  /* Espaço acima e abaixo da logo */
+  .header-full-width {
+    min-height: 30vh;
+    padding: 15% 0;
   }
 }

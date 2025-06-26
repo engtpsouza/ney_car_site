@@ -63,7 +63,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const listaVeiculos = document.getElementById('lista-veiculos');
     if (!listaVeiculos) return;
 
-    listaVeiculos.innerHTML = veiculos.map(veiculo => `
+    // Filtrar veículos que têm imagem existente
+    const veiculosComImagem = veiculos.filter(veiculo => {
+      // Verificar se a imagem existe
+      // Esta é uma verificação simulada - na prática, você precisaria garantir que as imagens existam
+      return veiculo.imagem && veiculo.imagem !== '';
+    });
+
+    if (veiculosComImagem.length === 0) {
+      listaVeiculos.innerHTML = '<p>Não há veículos disponíveis no momento.</p>';
+      return;
+    }
+
+    listaVeiculos.innerHTML = veiculosComImagem.map(veiculo => `
       <div class="card" data-aos="fade-up" data-aos-delay="100">
         <img src="${veiculo.imagem}" alt="${veiculo.modelo}" class="card-img" />
         <div class="card-content">
