@@ -10,20 +10,26 @@
   <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/1f558d452d.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="overlay"></div>
+  
   <header class="header-full-width">
     <div class="container header-content">
       <img src="img/logo.png" alt="Ney Car Auto Center" class="logo" />
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
       <nav class="main-nav">
         <ul class="nav-list">
           <li><a href="#inicio">Início</a></li>
           <li><a href="#veiculos">Veículos</a></li>
           <li><a href="#reserva">Reservar</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li><a href="#" class="close-menu"><i class="fas fa-times"></i> Fechar</a></li>
         </ul>
       </nav>
     </div>
@@ -56,7 +62,7 @@
         </div>
         <div class="form-group">
           <label for="telefone">Telefone</label>
-          <input type="tel" id="telefone" placeholder="(DD) 9XXXX-XXXX" required
+          <input type="tel" id="telefone" placeholder="(77) 91234-5678" required
                  pattern="^(\(?\d{2}\)?[\s.-]?\d{4,5}\-?\d{4})|(\d{10,11})$"
                  title="Formato: (DD) XXXXX-XXXX, DD XXXXX-XXXX, DDDDDDDDDD ou DDDDDDDDDDD" />
         </div>
@@ -79,13 +85,14 @@
   <section id="veiculos" class="veiculos container">
     <h2>Veículos Disponíveis</h2>
     <div class="cards" id="lista-veiculos">
-      </div>
+      <!-- Os veículos serão carregados via JavaScript -->
+    </div>
   </section>
 
   <section id="contato" class="contato container">
     <h2 data-aos="fade-up" class="contact-title-black">Fale Conosco</h2>
     <div class="contact-content">
-      <div class="contact-info" data-aos="fade-right" style="background-color: #f2f2f2; color: #444; padding: 30px; border-radius: 10px;">
+      <div class="contact-info" data-aos="fade-right">
         <p>Estamos prontos para atendê-lo em Brotas de Macaúbas e região. Visite-nos ou ligue!</p>
         <p><strong>Endereço:</strong> Parque Pedro Donato 87, Solar boa vista - Brotas de Macaúbas - BA, 47560-000</p>
         <p><strong>Telefone:</strong> (77) 3644-2291 | (77) 99178-5493 | (77) 99110-0554</p>
@@ -93,7 +100,7 @@
         <p><strong>Email:</strong> rnsodreservicos@gmail.com</p>
       </div>
       <div class="contact-map" data-aos="fade-left">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.5998684140936!2d-42.62683182493958!3d-12.002165088231164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x767de80b0846573%3A0x40c690b6f701ca5d!2sNEY%20CAR%20-%20AUTO%20CENTER%2C%20AUTO%20PE%C3%87AS%20%26%20LOCADORA%20DE%20VEICULOS!5e0!3m2!1spt-BR!2sbr!4v1750906819047!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.5998684140936!2d-42.62683182493958!3d-12.002165088231164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x767de80b0846573%3A0x40c690b6f701ca5d!2sNEY%20CAR%20-%20AUTO%20CENTER%2C%20AUTO%20PE%C3%87AS%20%26%20LOCADORA%20DE%20VEICULOS!5e0!3m2!1spt-BR!2sbr!4v1750906819047!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
@@ -116,6 +123,6 @@
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

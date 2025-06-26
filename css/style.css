@@ -9,6 +9,7 @@
   --box-shadow-light: rgba(0, 0, 0, 0.1);
   --box-shadow-medium: rgba(0, 0, 0, 0.2);
   --red-banner-color: #cc0000;
+  --background-color: #f8f9fa;
 }
 
 * {
@@ -20,7 +21,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--background-color);
-  background-image: url('../img/fundo.png'); /* Usando o fundo existente */
+  background-image: url('../img/fundo.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -29,48 +30,89 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  scroll-behavior: smooth; /* Para scroll suave */
+  scroll-behavior: smooth;
 }
 
-/* Nova classe para a faixa de topo */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header e Navegação */
 .header-full-width {
-  background-color: var(--secondary-color); /* Amarelo */
-  width: 100%; /* Ocupa toda a largura */
-  padding: 15px 0; /* Espaçamento vertical */
+  background-color: var(--secondary-color);
+  width: 100%;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* Contêiner interno do cabeçalho */
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+  flex-wrap: wrap;
 }
 
 .logo {
-  height: 100px; /* Ajuste o tamanho da sua logo aqui */
+  height: 70px;
+  max-width: 100%;
 }
 
-.main-nav .nav-list {
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.main-nav {
+  transition: all 0.3s ease;
+}
+
+.nav-list {
   list-style: none;
   display: flex;
   gap: 30px;
 }
 
-.main-nav .nav-list a {
+.nav-list a {
   color: var(--white-color);
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
   transition: color 0.3s ease;
+  padding: 5px 0;
+  position: relative;
 }
 
-.main-nav .nav-list a:hover {
-  color: var(--primary-color); /* Mudar para a cor primária ao passar o mouse */
+.nav-list a:hover {
+  color: var(--primary-color);
+}
+
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after {
+  width: 100%;
 }
 
 .phone-banner {
-  background-color: var(--red-banner-color); /* Faixa vermelha */
+  background-color: var(--red-banner-color);
   color: var(--white-color);
   padding: 10px 0;
   text-align: center;
@@ -81,7 +123,7 @@ body {
 .phone-banner-content {
   display: flex;
   justify-content: center;
-  gap: 25px; /* Espaço entre os números de telefone/ícones */
+  gap: 25px;
   flex-wrap: wrap;
 }
 
@@ -97,23 +139,24 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/hero-background2.jpg') no-repeat center center/cover; /* Alterado para hero-background2.jpg */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/hero-background2.jpg') no-repeat center center/cover;
   color: var(--white-color);
   text-align: center;
   padding: 150px 20px;
-  flex-grow: 1; /* Faz com que o hero section ocupe o espaço restante */
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 80vh;
 }
 
 .hero-content {
   max-width: 800px;
+  padding: 0 20px;
 }
 
 .hero-content h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   margin-bottom: 15px;
   line-height: 1.2;
 }
@@ -130,6 +173,9 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .btn-primary {
@@ -138,7 +184,7 @@ body {
 }
 
 .btn-primary:hover {
-  background-color: #e67e00; /* Um tom um pouco mais escuro para hover */
+  background-color: #e67e00;
   transform: translateY(-2px);
 }
 
@@ -148,7 +194,7 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color: #003a63; /* Um tom mais escuro para hover */
+  background-color: #003a63;
   transform: translateY(-2px);
 }
 
@@ -156,11 +202,12 @@ body {
 .reserva {
   background-color: var(--white-color);
   padding: 40px;
-  margin-top: -80px; /* Sobrepõe a seção anterior */
+  margin: -80px auto 0;
   border-radius: 10px;
   box-shadow: 0 5px 15px var(--box-shadow-light);
-  z-index: 10; /* Garante que fique acima do hero */
+  z-index: 10;
   position: relative;
+  max-width: 1000px;
 }
 
 .reserva h2 {
@@ -168,6 +215,7 @@ body {
   margin-bottom: 30px;
   color: var(--primary-color);
   font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
 }
 
 .reserva form {
@@ -205,8 +253,8 @@ body {
 }
 
 .reserva button[type="submit"] {
-  width: auto; /* Para não ocupar 100% da largura */
-  align-self: center; /* Centraliza o botão no formulário flex */
+  width: auto;
+  align-self: center;
   margin-top: 20px;
 }
 
@@ -229,6 +277,7 @@ body {
   color: var(--primary-color);
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 40px;
+  font-size: 2rem;
 }
 
 .cards {
@@ -236,6 +285,9 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .card {
@@ -253,11 +305,10 @@ body {
   box-shadow: 0 8px 20px var(--box-shadow-medium);
 }
 
-.card img {
+.card-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
 }
 
 .card-content {
@@ -265,7 +316,7 @@ body {
   text-align: left;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Permite que o conteúdo se expanda */
+  flex-grow: 1;
 }
 
 .card-content h3 {
@@ -282,8 +333,8 @@ body {
 }
 
 .card-prices {
-  margin-top: auto; /* Empurra para o final do card-content */
-  padding-top: 15px; /* Espaçamento acima dos preços */
+  margin-top: auto;
+  padding-top: 15px;
   border-top: 1px dashed #eee;
   display: flex;
   flex-direction: column;
@@ -305,7 +356,7 @@ body {
 .btn-card {
   margin-top: 20px;
   text-align: center;
-  width: 100%; /* Ocupa a largura total do card */
+  width: 100%;
 }
 
 /* Contato Section */
@@ -319,6 +370,7 @@ body {
   margin-bottom: 40px;
   color: var(--primary-color);
   font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
 }
 
 .contact-content {
@@ -326,12 +378,19 @@ body {
   gap: 40px;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start; /* Alinha o topo dos elementos */
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .contact-info {
   flex: 1;
-  min-width: 300px; /* Garante um tamanho mínimo */
+  min-width: 300px;
+  background-color: #f2f2f2;
+  color: #444;
+  padding: 30px;
+  border-radius: 10px;
 }
 
 .contact-info p {
@@ -357,16 +416,17 @@ body {
 .contact-map {
   flex: 1;
   min-width: 300px;
-  height: 300px; /* Altura fixa para o mapa */
+  height: 300px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 5px 15px var(--box-shadow-light);
 }
 
 .contact-map iframe {
-  border-radius: 10px; /* Aplica borda arredondada também ao iframe */
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
 }
-
 
 /* WhatsApp Float Button */
 .whatsapp-float {
@@ -404,13 +464,12 @@ body {
   color: var(--white-color);
   padding: 30px 0;
   text-align: center;
-  margin-top: auto; /* Empurra o footer para o final da página */
 }
 
 .phone-banner-footer {
   display: flex;
   justify-content: center;
-  gap: 25px; /* Espaço entre os números de telefone/ícones */
+  gap: 25px;
   flex-wrap: wrap;
   margin-bottom: 15px;
 }
@@ -425,116 +484,139 @@ body {
   color: var(--white-color);
 }
 
-
 /* Responsividade */
 @media (max-width: 1024px) {
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .header-content {
+  /* Menu responsivo */
+  .menu-toggle {
+    display: block;
+  }
+  
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    padding-top: 80px;
+  }
+  
+  .main-nav.active {
+    right: 0;
+  }
+  
+  .nav-list {
     flex-direction: column;
-    align-items: flex-start; /* Alinha os itens à esquerda em telas menores */
+    gap: 0;
+    padding: 20px;
   }
-
-  .logo {
-    height: 120px; /* Reduz um pouco o tamanho da logo em telas menores */
-    margin-bottom: 10px; /* Adiciona espaço abaixo da logo */
+  
+  .nav-list li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
-
-  .main-nav .nav-list {
-    margin-top: 10px; /* Adiciona espaço acima da navegação */
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+  
+  .nav-list a {
+    display: block;
+    padding: 15px 10px;
+    font-size: 1.2rem;
   }
-  .main-nav .nav-list a {
-    font-size: 1rem;
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
   }
+  
+  .overlay.active {
+    display: block;
+  }
+  
   .hero {
     padding: 100px 20px;
   }
+  
   .hero-content h1 {
     font-size: 2.2rem;
   }
+  
   .hero-content p {
     font-size: 1rem;
   }
-  h2 {
-    font-size: 2rem;
-  }
-  section {
-    padding: 60px 0;
-  }
+  
   .reserva {
-    margin-top: -60px;
+    padding: 30px 20px;
+    margin-top: -50px;
   }
-  .card-content h3 {
-    font-size: 1.5rem;
+  
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
   }
-  .card-prices .price-total {
-    font-size: 1.4rem;
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
+  
   .contact-content {
     flex-direction: column;
     gap: 30px;
   }
+  
+  .contact-map {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .phone-banner-content,
+  .phone-banner-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .hero {
+    padding: 80px 15px;
+  }
+  
+  .reserva {
+    padding: 25px 15px;
+  }
+  
+  .reserva h2,
+  .veiculos h2,
+  .contact-title-black {
+    font-size: 1.8rem;
+  }
+  
   .whatsapp-float {
     width: 50px;
     height: 50px;
     bottom: 20px;
     right: 20px;
   }
+  
   .whatsapp-float img {
     width: 30px;
     height: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    height: 100px; /* Reduz ainda mais para telas muito pequenas */
-  }
-
-  .nav-list {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .phone-banner-content {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .form-row {
-    flex-direction: column; /* Faz com que os campos ocupem a largura total */
-    gap: 15px;
-  }
-
-  .form-group { /* Adicionado para garantir que cada campo ocupe sua própria linha */
-    width: 100%;
-  }
-
-  .reserva {
-    padding: 30px 15px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
-  }
-
-  .card-content h3 {
-    font-size: 1.4rem;
-  }
-
-  .contact-info p {
-    font-size: 1rem;
-  }
-
-  .phone-banner-footer {
-    flex-direction: column;
-    gap: 10px;
   }
 }
