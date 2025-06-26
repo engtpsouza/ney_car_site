@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const mainNav = document.querySelector('.main-nav');
   const overlay = document.querySelector('.overlay');
   const closeMenu = document.querySelector('.close-menu');
+  const navLinks = document.querySelectorAll('.nav-list a:not(.close-menu)');
+  
+  function closeMobileMenu() {
+    mainNav.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+  }
   
   menuToggle.addEventListener('click', function() {
     mainNav.classList.toggle('active');
@@ -20,15 +27,18 @@ document.addEventListener('DOMContentLoaded', function() {
   
   closeMenu.addEventListener('click', function(e) {
     e.preventDefault();
-    mainNav.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.classList.remove('no-scroll');
+    closeMobileMenu();
   });
   
   overlay.addEventListener('click', function() {
-    mainNav.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.classList.remove('no-scroll');
+    closeMobileMenu();
+  });
+
+  // Fechar o menu ao clicar em um link
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      closeMobileMenu();
+    });
   });
 
   // Carregar veículos
@@ -144,22 +154,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const dataRetirada = dataRetiradaInput.value;
     const dataDevolucao = dataDevolucaoInput.value;
     
-    let message = 'Olá, gostaria de fazer uma reserva.';
-    
-    if (nome) {
-      message += `\n*Nome:* ${nome}`;
-    }
-    
-    if (telefone) {
-      message += `\n*Telefone:* ${telefone}`;
-    }
+    let message = 'Olá! Eu sou ' + (nome || '') + ' e gostaria de reservar o veículo ' + modeloVeiculo;
     
     if (dataRetirada && dataDevolucao) {
-      message += `\n*Período:* De ${formatarData(dataRetirada)} a ${formatarData(dataDevolucao)}`;
-    }
-    
-    if (modeloVeiculo) {
-      message += `\n*Veículo de interesse:* ${modeloVeiculo}`;
+      message += ' no intervalo de ' + formatarData(dataRetirada) + ' a ' + formatarData(dataDevolucao) + '.';
+    } else {
+      message += '.';
     }
     
     const whatsappNumber = '557736442289';
