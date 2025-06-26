@@ -1,37 +1,44 @@
 [
+{
+    "modelo": "Fiat Argo 1.3",
+    "categoria": "Compacto",
+    "descricao": "Carro compacto, econômico e perfeito para uso urbano.",
+    "preco_dia": "260.00",
+    "imagem": "img/argo13.jpg"
+  },
   {
     "modelo": "Fiat Argo 1.0",
     "categoria": "Compacto",
     "descricao": "Carro compacto, econômico e perfeito para uso urbano.",
-    "preco_dia": "89.90",
-    "imagem": "img/argo.jpg"
+    "preco_dia": "250.00",
+    "imagem": "img/argo10.jpg"
   },
   {
     "modelo": "Fiat Mobi",
     "categoria": "Hatch Compacto",
     "descricao": "Modelo moderno com conforto e tecnologia.",
-    "preco_dia": "99.90",
+    "preco_dia": "230.00",
     "imagem": "img/mobi.jpg"
   },
   {
-    "modelo": "Fiat Pulse",
+    "modelo": "Fiat Pulse Drive 1.3",
     "categoria": "Sedan",
     "descricao": "Popular, econômico e fácil de dirigir.",
-    "preco_dia": "79.90",
+    "preco_dia": "350.00",
     "imagem": "img/pulse.jpg"
   },
    {
-    "modelo": "Fiat Cronos",
+    "modelo": "Fiat Cronos Precision 1.8",
     "categoria": "Sedan",
     "descricao": "Conforto e espaço para toda a família.",
-    "preco_dia": "110.00",
+    "preco_dia": "350.00",
     "imagem": "img/cronos.jpg"
   },
    {
-    "modelo": "Fiat Strada",
+    "modelo": "Fiat Strada Freedom 1.3",
     "categoria": "Picape Compacta",
     "descricao": "Versatilidade e capacidade de carga para trabalho ou lazer.",
-    "preco_dia": "130.00",
+    "preco_dia": "350.00",
     "imagem": "img/strada.jpg"
   }
 ]
