@@ -29,7 +29,7 @@
           <li><a href="#veiculos">Veículos</a></li>
           <li><a href="#reserva">Reservar</a></li>
           <li><a href="#contato">Contato</a></li>
-          <li><a href="#" class="close-menu"><i class="fas fa-times"></i> Fechar</a></li>
+          <li class="mobile-only"><a href="#" class="close-menu"><i class="fas fa-times"></i> Fechar</a></li>
         </ul>
       </nav>
     </div>
@@ -77,7 +77,7 @@
           <input type="date" id="data-devolucao" required />
         </div>
       </div>
-      <button type="submit" class="btn btn-secondary">Consultar Disponibilidade e Valores</button>
+      <button type="button" id="consultar-button" class="btn btn-secondary">Consultar Disponibilidade e Valores</button>
     </form>
     <div id="resultado-reserva"></div>
   </section>
@@ -105,7 +105,7 @@
     </div>
   </section>
 
-  <a href="https://wa.me/557736442289" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+  <a href="#" class="whatsapp-float" id="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
     <img src="img/icon-whatsapp.png" alt="WhatsApp" />
   </a>
 

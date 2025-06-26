@@ -64,19 +64,28 @@ document.addEventListener('DOMContentLoaded', function() {
             <span class="price-day">R$ ${parseFloat(veiculo.preco_dia).toFixed(2)} / dia</span>
             <span class="price-total" id="total-${veiculo.modelo.replace(/\s/g, '-')}-card"></span>
           </div>
-          <a href="#reserva" class="btn btn-primary btn-card">Reservar</a>
+          <button class="btn btn-primary btn-card reservar-btn" data-modelo="${veiculo.modelo}">Reservar</button>
         </div>
       </div>
     `).join('');
+
+    // Adiciona evento de clique para os botões de reserva
+    document.querySelectorAll('.reservar-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const modelo = this.getAttribute('data-modelo');
+        abrirWhatsApp(modelo);
+      });
+    });
   }
 
   // Formulário de reserva
-  const reservaForm = document.getElementById('reserva-form');
   const nomeInput = document.getElementById('nome');
   const telefoneInput = document.getElementById('telefone');
   const dataRetiradaInput = document.getElementById('data-retirada');
   const dataDevolucaoInput = document.getElementById('data-devolucao');
   const resultadoReservaDiv = document.getElementById('resultado-reserva');
+  const consultarButton = document.getElementById('consultar-button');
+  const whatsappButton = document.getElementById('whatsapp-button');
 
   // Função para calcular o total de dias e atualizar a exibição
   function calcularTotalPeriodo() {
@@ -110,49 +119,67 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    resultadoReservaDiv.textContent = `Período da reserva: ${diffDays} dia(s). Valores atualizados nos veículos.`;
+    resultadoReservaDiv.textContent = `Período da reserva: ${diffDays} dia(s).`;
     resultadoReservaDiv.style.color = 'green';
+
+    // Rolar até a seção de veículos
+    document.getElementById('veiculos').scrollIntoView({ behavior: 'smooth' });
   }
 
-  // Adiciona listeners para atualizar o cálculo quando as datas mudarem
-  if (dataRetiradaInput) {
-    dataRetiradaInput.addEventListener('change', calcularTotalPeriodo);
-  }
-  if (dataDevolucaoInput) {
-    dataDevolucaoInput.addEventListener('change', calcularTotalPeriodo);
+  // Adiciona listener para o botão de consulta
+  consultarButton.addEventListener('click', function() {
+    // Validação básica
+    if (!dataRetiradaInput.value || !dataDevolucaoInput.value) {
+      resultadoReservaDiv.textContent = 'Por favor, preencha as datas de retirada e devolução.';
+      resultadoReservaDiv.style.color = 'red';
+      return;
+    }
+    calcularTotalPeriodo();
+  });
+
+  // Função para abrir o WhatsApp com a mensagem pré-preenchida
+  function abrirWhatsApp(modeloVeiculo = '') {
+    const nome = nomeInput.value.trim();
+    const telefone = telefoneInput.value.trim();
+    const dataRetirada = dataRetiradaInput.value;
+    const dataDevolucao = dataDevolucaoInput.value;
+    
+    let message = 'Olá, gostaria de fazer uma reserva.';
+    
+    if (nome) {
+      message += `\n*Nome:* ${nome}`;
+    }
+    
+    if (telefone) {
+      message += `\n*Telefone:* ${telefone}`;
+    }
+    
+    if (dataRetirada && dataDevolucao) {
+      message += `\n*Período:* De ${formatarData(dataRetirada)} a ${formatarData(dataDevolucao)}`;
+    }
+    
+    if (modeloVeiculo) {
+      message += `\n*Veículo de interesse:* ${modeloVeiculo}`;
+    }
+    
+    const whatsappNumber = '557736442289';
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank');
   }
 
-  // Envio do formulário
-  if (reservaForm) {
-    reservaForm.addEventListener('submit', function(event) {
-      event.preventDefault();
-      
-      // Coleta os valores dos campos
-      const nome = nomeInput ? nomeInput.value.trim() : '';
-      const telefone = telefoneInput ? telefoneInput.value.trim() : '';
-      const dataRetirada = dataRetiradaInput ? dataRetiradaInput.value : '';
-      const dataDevolucao = dataDevolucaoInput ? dataDevolucaoInput.value : '';
-
-      // Validação básica
-      if (!nome || !telefone || !dataRetirada || !dataDevolucao) {
-        if (resultadoReservaDiv) {
-          resultadoReservaDiv.textContent = 'Por favor, preencha todos os campos obrigatórios.';
-          resultadoReservaDiv.style.color = 'red';
-        }
-        return;
-      }
-
-      // Feedback para o usuário
-      if (resultadoReservaDiv) {
-        resultadoReservaDiv.textContent = 'Sua solicitação foi enviada! Em breve entraremos em contato.';
-        resultadoReservaDiv.style.color = 'green';
-      }
-      
-      reservaForm.reset();
-      calcularTotalPeriodo();
-    });
+  function formatarData(dataString) {
+    const [year, month, day] = dataString.split('-');
+    return `${day}/${month}/${year}`;
   }
-  
+
+  // Configura o botão do WhatsApp
+  whatsappButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    abrirWhatsApp();
+  });
+
   // Define data mínima para os campos de data (hoje)
   const today = new Date().toISOString().split('T')[0];
   if (dataRetiradaInput) dataRetiradaInput.min = today;

@@ -111,6 +111,11 @@ body {
   width: 100%;
 }
 
+/* Esconder o botão Fechar em telas grandes */
+.mobile-only {
+  display: none;
+}
+
 .phone-banner {
   background-color: var(--red-banner-color);
   color: var(--white-color);
@@ -252,7 +257,7 @@ body {
   width: 100%;
 }
 
-.reserva button[type="submit"] {
+.reserva button[type="button"] {
   width: auto;
   align-self: center;
   margin-top: 20px;
@@ -494,6 +499,10 @@ body {
 @media (max-width: 768px) {
   /* Menu responsivo */
   .menu-toggle {
+    display: block;
+  }
+  
+  .mobile-only {
     display: block;
   }
   
