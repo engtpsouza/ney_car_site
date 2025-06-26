@@ -1,117 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ney Car Auto Center & Locadora de Veículos</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ney Car Auto Center - Seu Carro Ideal para Qualquer Ocasião</title>
+  <meta name="description" content="Aluguel de veículos em Brotas de Macaúbas e região. Conforto, segurança e os melhores preços para sua viagem." />
+  <meta name="keywords" content="aluguel de carros, auto center, Ney Car, veículos, Brotas de Macaúbas, Bahia, locadora de veículos, carro, alugar" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/1f558d452d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="logo.png" alt="Ney Car Auto Center Logo">
-            </div>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Abrir Menu">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <ul class="nav-list">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#about">Sobre Nós</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#rental">Locadora de Veículos</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </nav>
+  <header class="header-full-width">
+    <div class="container header-content">
+      <img src="img/logo.png" alt="Ney Car Auto Center" class="logo" />
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#veiculos">Veículos</a></li>
+          <li><a href="#reserva">Reservar</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="phone-banner">
+    <div class="container phone-banner-content">
+      <span><i class="fas fa-phone"></i> (77) 3644-2289</span>
+      <span><i class="fas fa-phone"></i> (77) 99178-5493</span>
+      <span><i class="fas fa-phone"></i> (77) 99110-0554</span>
+      <span><i class="fab fa-instagram"></i> neycarauto</span>
+    </div>
+  </div>
+
+  <section id="inicio" class="hero">
+    <div class="container hero-content" data-aos="fade-up">
+      <h1>Seu carro ideal para qualquer ocasião</h1>
+      <p>Conforto, segurança e preços que cabem no seu bolso.</p>
+      <a href="#reserva" class="btn btn-primary" data-aos="fade-up" data-aos-delay="200">Reserve agora</a>
+    </div>
+  </section>
+
+  <section id="reserva" class="reserva container" data-aos="fade-up">
+    <h2>Faça sua Reserva</h2>
+    <form id="reserva-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" placeholder="Seu nome" required />
         </div>
-    </header>
-
-    <main>
-        <section id="home" class="hero" style="background-image: url('Ney Car Auto Center Fundo.jpg');">
-            <div class="container">
-                <h1>Seu Carro no Melhor Lugar!</h1>
-                <p>Qualidade, confiança e os melhores serviços para seu veículo.</p>
-                <a href="#contact" class="btn btn-primary">Fale Conosco</a>
-            </div>
-        </section>
-
-        <section id="about" class="about-us section-padding">
-            <div class="container">
-                <h2>Sobre Nós</h2>
-                <p>A Ney Car Auto Center e Locadora de Veículos é referência em Xique-Xique e região. Com anos de experiência, oferecemos excelência em manutenção automotiva e as melhores opções para aluguel de veículos.</p>
-                <p>Nossa missão é garantir a sua segurança e satisfação, com uma equipe qualificada e equipamentos de ponta.</p>
-            </div>
-        </section>
-
-        <section id="services" class="services section-padding bg-light">
-            <div class="container">
-                <h2>Nossos Serviços</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>Mecânica Geral</h3>
-                        <p>Diagnóstico completo e reparos para todas as marcas e modelos.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Troca de Óleo e Filtros</h3>
-                        <p>Serviço rápido e eficiente para manter seu motor protegido.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Alinhamento e Balanceamento</h3>
-                        <p>Garanta a segurança e o bom desempenho dos pneus do seu veículo.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Freios e Suspensão</h3>
-                        <p>Manutenção preventiva e corretiva para sua segurança e conforto.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="rental" class="vehicle-rental section-padding">
-            <div class="container">
-                <h2>Locadora de Veículos</h2>
-                <p>Precisa de um carro para sua viagem ou para o dia a dia? Na Ney Car, você encontra a frota ideal para suas necessidades!</p>
-                <ul>
-                    <li>Veículos novos e revisados</li>
-                    <li>Preços competitivos</li>
-                    <li>Flexibilidade no aluguel</li>
-                    <li>Atendimento personalizado</li>
-                </ul>
-                <a href="#contact" class="btn btn-secondary">Reserve Seu Veículo</a>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-us section-padding bg-light">
-            <div class="container">
-                <h2>Entre em Contato</h2>
-                <p>Estamos prontos para atendê-lo. Visite-nos ou ligue!</p>
-                <div class="contact-info">
-                    <p><strong>Endereço:</strong> Rua da Bahia, 123 - Centro, Xique-Xique - BA</p>
-                    <p><strong>Telefone:</strong> (74) 3661-2291 | (74) 99970-8483</p>
-                    <p><strong>WhatsApp:</strong> (74) 99112-4554</p>
-                    <p><strong>Email:</strong> contato@neycar.com.br</p>
-                    <div class="map-container">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.6806520023447!2d-42.72979208517551!3d-10.86799019227091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x74229b0f49d32d7%3A0xc3c5d6c9c6f2a281!2sXique-Xique%2C%20BA%2C%20Brazil!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Ney Car Auto Center & Locadora de Veículos. Todos os direitos reservados.</p>
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" placeholder="(DD) 9XXXX-XXXX" required
+                 pattern="^(\(?\d{2}\)?[\s.-]?\d{4,5}\-?\d{4})|(\d{10,11})$"
+                 title="Formato: (DD) XXXXX-XXXX, DD XXXXX-XXXX, DDDDDDDDDD ou DDDDDDDDDDD" />
         </div>
-    </footer>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="data-retirada">Data de Retirada</label>
+          <input type="date" id="data-retirada" required />
+        </div>
+        <div class="form-group">
+          <label for="data-devolucao">Data de Devolução</label>
+          <input type="date" id="data-devolucao" required />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-secondary">Consultar Disponibilidade e Valores</button>
+    </form>
+    <div id="resultado-reserva"></div>
+  </section>
 
-    <script src="script.js"></script>
+  <section id="veiculos" class="veiculos container">
+    <h2>Veículos Disponíveis</h2>
+    <div class="cards" id="lista-veiculos">
+      </div>
+  </section>
+
+  <section id="contato" class="contato container">
+    <h2 data-aos="fade-up" class="contact-title-black">Fale Conosco</h2>
+    <div class="contact-content">
+      <div class="contact-info" data-aos="fade-right" style="background-color: #f2f2f2; color: #444; padding: 30px; border-radius: 10px;">
+        <p>Estamos prontos para atendê-lo em Brotas de Macaúbas e região. Visite-nos ou ligue!</p>
+        <p><strong>Endereço:</strong> Parque Pedro Donato 87, Solar boa vista - Brotas de Macaúbas - BA, 47560-000</p>
+        <p><strong>Telefone:</strong> (77) 3644-2291 | (77) 99178-5493 | (77) 99110-0554</p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/557736442289" target="_blank" rel="noopener noreferrer">+55 77 3644-2289</a></p>
+        <p><strong>Email:</strong> rnsodreservicos@gmail.com</p>
+      </div>
+      <div class="contact-map" data-aos="fade-left">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.5998684140936!2d-42.62683182493958!3d-12.002165088231164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x767de80b0846573%3A0x40c690b6f701ca5d!2sNEY%20CAR%20-%20AUTO%20CENTER%2C%20AUTO%20PE%C3%87AS%20%26%20LOCADORA%20DE%20VEICULOS!5e0!3m2!1spt-BR!2sbr!4v1750906819047!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/557736442289" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+    <img src="img/icon-whatsapp.png" alt="WhatsApp" />
+  </a>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="phone-banner-footer">
+        <span><i class="fas fa-phone"></i> (77) 3644-2289</span>
+        <span><i class="fas fa-phone"></i> (77) 99178-5493</span>
+        <span><i class="fas fa-phone"></i> (77) 99110-0554</span>
+        <span><i class="fab fa-instagram"></i> neycarauto</span>
+      </div>
+      <p>© 2025 Ney Car Auto Center. Todos os direitos reservados.</p>
+      <p>Desenvolvido por Ney Car.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

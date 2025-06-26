@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 console.error('main.js: Elemento #lista-veiculos não encontrado para carregar veículos.');
             }
-        } catch (error) {
+        }
+        catch (error) {
             console.error('main.js: Erro ao carregar veículos:', error);
             const listaVeiculos = document.getElementById('lista-veiculos');
             if (listaVeiculos) {

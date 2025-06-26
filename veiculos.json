@@ -37,8 +37,36 @@
   {
     "modelo": "Fiat Cronos",
     "categoria": "Sedan",
-    "descricao": "Espaçoso e confortável para viagens.",
+    "descricao": "Conforto e espaço para toda a família.",
     "preco_dia": "110.00",
     "imagem": "img/cronos.jpg"
+  },
+  {
+    "modelo": "Jeep Renegade",
+    "categoria": "SUV",
+    "descricao": "Aventureiro e robusto, ideal para qualquer terreno.",
+    "preco_dia": "150.00",
+    "imagem": "img/renegade.jpg"
+  },
+  {
+    "modelo": "Toyota Corolla",
+    "categoria": "Sedan Médio",
+    "descricao": "Elegância, desempenho e confiabilidade.",
+    "preco_dia": "180.00",
+    "imagem": "img/corolla.jpg"
+  },
+  {
+    "modelo": "Fiat Strada",
+    "categoria": "Picape Compacta",
+    "descricao": "Versatilidade e capacidade de carga para trabalho ou lazer.",
+    "preco_dia": "130.00",
+    "imagem": "img/strada.jpg"
+  },
+  {
+    "modelo": "Volkswagen Virtus",
+    "categoria": "Sedan Compacto",
+    "descricao": "Espaçoso e tecnológico, para viagens em família.",
+    "preco_dia": "105.00",
+    "imagem": "img/virtus.jpg"
   }
 ]
