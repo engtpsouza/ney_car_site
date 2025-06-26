@@ -57,7 +57,7 @@ body {
   z-index: 1000;
   display: flex;
   align-items: center;
-  min-height: 30vh; /* Espaço acima e abaixo da logo */
+  min-height: 1vh; /* Espaço acima e abaixo da logo */
 }
 
 .header-content {
@@ -66,11 +66,11 @@ body {
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  padding: 15% 0; /* Espaço acima e abaixo da logo */
+  padding: 0% 0; /* Espaço acima e abaixo da logo */
 }
 
 .logo {
-  height: 70px;
+  height: 200px;
   max-width: 100%;
   margin: 0 auto;
   display: block;
@@ -731,7 +731,7 @@ body {
   
   /* Espaço acima e abaixo da logo */
   .header-full-width {
-    min-height: 30vh;
+    min-height: 5vh;
     padding: 15% 0;
   }
 }
