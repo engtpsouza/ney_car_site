@@ -52,7 +52,7 @@ body {
 .header-full-width {
   background-color: var(--secondary-color);
   width: 100%;
-  padding: 15px 0;
+  padding: 5px 0; /* Reduzido pela metade */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -69,6 +69,7 @@ body {
 .logo {
   height: 70px;
   max-width: 100%;
+  margin: 5px auto; /* Reduzido pela metade */
 }
 
 /* Botão de menu flutuante no celular */
@@ -81,8 +82,8 @@ body {
   cursor: pointer;
   padding: 10px;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 15px; /* Posicionado acima da logo */
+  right: 15px;
   z-index: 1001;
   background: var(--secondary-color);
   border-radius: 50%;
@@ -141,7 +142,7 @@ body {
 .phone-banner {
   background-color: var(--red-banner-color);
   color: var(--white-color);
-  padding: 10px 0;
+  padding: 5px 0; /* Reduzido pela metade */
   text-align: center;
   font-size: 0.95rem;
   width: 100%;
@@ -183,11 +184,11 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/hero-background2.jpg') no-repeat center center/cover;
   color: var(--white-color);
   text-align: center;
-  padding: 150px 20px;
+  padding: 75px 20px; /* Reduzido pela metade */
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 40vh; /* Reduzido pela metade */
 }
 
 .hero-content {
@@ -243,7 +244,7 @@ body {
 .reserva {
   background-color: var(--white-color);
   padding: 40px;
-  margin: -80px auto 0;
+  margin: -40px auto 0; /* Ajustado para o novo tamanho */
   border-radius: 10px;
   box-shadow: 0 5px 15px var(--box-shadow-light);
   z-index: 10;
@@ -309,7 +310,7 @@ body {
 
 /* Veículos Section */
 .veiculos {
-  padding: 80px 0;
+  padding: 40px 0; /* Reduzido pela metade */
   background-color: var(--background-color);
   text-align: center;
 }
@@ -402,7 +403,7 @@ body {
 
 /* Contato Section */
 .contato {
-  padding: 80px 0;
+  padding: 40px 0; /* Reduzido pela metade */
   background-color: var(--tertiary-color);
 }
 
@@ -503,7 +504,7 @@ body {
 .footer {
   background-color: var(--primary-color);
   color: var(--white-color);
-  padding: 30px 0;
+  padding: 15px 0; /* Reduzido pela metade */
   text-align: center;
 }
 
@@ -542,8 +543,8 @@ body {
   .menu-toggle {
     display: flex;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     background: var(--secondary-color);
     border-radius: 50%;
     width: 50px;
@@ -607,7 +608,7 @@ body {
   }
   
   .hero {
-    padding: 100px 20px;
+    padding: 50px 20px; /* Reduzido pela metade */
   }
   
   .hero-content h1 {
@@ -620,7 +621,7 @@ body {
   
   .reserva {
     padding: 30px 20px;
-    margin-top: -50px;
+    margin-top: -25px; /* Ajustado para o novo tamanho */
   }
   
   .form-row {
@@ -645,7 +646,7 @@ body {
   /* Logo maior no celular */
   .logo {
     height: 140px; /* Duas vezes maior (70px * 2) */
-    margin: 10px auto;
+    margin: 5px auto; /* Reduzido pela metade */
     display: block;
   }
 
@@ -672,7 +673,7 @@ body {
   
   .logo {
     height: 140px;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Reduzido pela metade */
   }
 
   .hero-content h1 {
@@ -687,7 +688,7 @@ body {
   }
   
   .hero {
-    padding: 80px 15px;
+    padding: 40px 15px; /* Reduzido pela metade */
   }
   
   .reserva {
