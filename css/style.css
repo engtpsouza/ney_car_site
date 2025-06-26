@@ -97,7 +97,7 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/fundo.jpg') no-repeat center center/cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/hero-background2.jpg') no-repeat center center/cover; /* Alterado para hero-background2.jpg */
   color: var(--white-color);
   text-align: center;
   padding: 150px 20px;
@@ -509,8 +509,12 @@ body {
   }
 
   .form-row {
-    flex-direction: column;
+    flex-direction: column; /* Faz com que os campos ocupem a largura total */
     gap: 15px;
+  }
+
+  .form-group { /* Adicionado para garantir que cada campo ocupe sua própria linha */
+    width: 100%;
   }
 
   .reserva {
