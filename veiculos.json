@@ -7,66 +7,31 @@
     "imagem": "img/argo.jpg"
   },
   {
-    "modelo": "Chevrolet Onix",
-    "categoria": "Sedan Compacto",
+    "modelo": "Fiat Mobi",
+    "categoria": "Hatch Compacto",
     "descricao": "Modelo moderno com conforto e tecnologia.",
     "preco_dia": "99.90",
-    "imagem": "img/onix.jpg"
+    "imagem": "img/mobi.jpg"
   },
   {
-    "modelo": "Volkswagen Gol",
-    "categoria": "Hatch",
+    "modelo": "Fiat Pulse",
+    "categoria": "Sedan",
     "descricao": "Popular, econômico e fácil de dirigir.",
     "preco_dia": "79.90",
-    "imagem": "img/gol.jpg"
+    "imagem": "img/pulse.jpg"
   },
-  {
-    "modelo": "Hyundai HB20",
-    "categoria": "Hatch",
-    "descricao": "Estilo e desempenho para o dia a dia.",
-    "preco_dia": "95.00",
-    "imagem": "img/hb20.jpg"
-  },
-  {
-    "modelo": "Renault Kwid",
-    "categoria": "Subcompacto",
-    "descricao": "O SUV dos compactos, ideal para cidade.",
-    "preco_dia": "75.00",
-    "imagem": "img/kwid.jpg"
-  },
-  {
+   {
     "modelo": "Fiat Cronos",
     "categoria": "Sedan",
     "descricao": "Conforto e espaço para toda a família.",
     "preco_dia": "110.00",
     "imagem": "img/cronos.jpg"
   },
-  {
-    "modelo": "Jeep Renegade",
-    "categoria": "SUV",
-    "descricao": "Aventureiro e robusto, ideal para qualquer terreno.",
-    "preco_dia": "150.00",
-    "imagem": "img/renegade.jpg"
-  },
-  {
-    "modelo": "Toyota Corolla",
-    "categoria": "Sedan Médio",
-    "descricao": "Elegância, desempenho e confiabilidade.",
-    "preco_dia": "180.00",
-    "imagem": "img/corolla.jpg"
-  },
-  {
+   {
     "modelo": "Fiat Strada",
     "categoria": "Picape Compacta",
     "descricao": "Versatilidade e capacidade de carga para trabalho ou lazer.",
     "preco_dia": "130.00",
     "imagem": "img/strada.jpg"
-  },
-  {
-    "modelo": "Volkswagen Virtus",
-    "categoria": "Sedan Compacto",
-    "descricao": "Espaçoso e tecnológico, para viagens em família.",
-    "preco_dia": "105.00",
-    "imagem": "img/virtus.jpg"
   }
 ]
