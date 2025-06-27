@@ -57,7 +57,7 @@ body {
   z-index: 1000;
   display: flex;
   align-items: center;
-  min-height: 1vh; /* Espaço acima e abaixo da logo */
+  min-height: 30vh; /* Espaço acima e abaixo da logo */
 }
 
 .header-content {
@@ -732,6 +732,6 @@ body {
   /* Espaço acima e abaixo da logo */
   .header-full-width {
     min-height: 5vh;
-    padding: 15% 0;
+    padding: 5% 0;
   }
 }
