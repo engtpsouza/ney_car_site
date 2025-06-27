@@ -144,8 +144,8 @@ body {
 }
 
 .phone-banner {
-  background-color: var(--red-banner-color);
-  color: var(--white-color);
+  background-color: #cc0000;
+  color: #ffffff;
   padding: 10px 0;
   text-align: center;
   font-size: 0.95rem;
@@ -698,8 +698,8 @@ body {
   
   .phone-banner-content,
   .phone-banner-footer {
-    flex-direction: column;
-    gap: 10px;
+    /* flex-direction: column; */
+    gap: 15px;
     text-align: center;
   }
   
