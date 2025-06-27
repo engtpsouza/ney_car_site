@@ -65,8 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Filtrar veículos que têm imagem existente
     const veiculosComImagem = veiculos.filter(veiculo => {
-      // Verificar se a imagem existe
-      // Esta é uma verificação simulada - na prática, você precisaria garantir que as imagens existam
       return veiculo.imagem && veiculo.imagem !== '';
     });
 
